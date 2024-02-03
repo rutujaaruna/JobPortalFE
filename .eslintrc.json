@@ -15,6 +15,7 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@typescript-eslint/no-inferrable-types":"off",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -30,7 +31,30 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-console": "warn", // Add this line to disallow console.log
+        "semi": ["warn", "always"],
+        "no-duplicate-imports": "warn",
+        "func-style": [
+            "warn",
+            "declaration",
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "no-extra-semi": "warn",
+        "block-spacing": "warn",
+        "comma-dangle": "warn",
+        "comma-spacing": [
+            "warn",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "no-multi-spaces":"warn",
+        "no-restricted-imports":"warn",
+        "@typescript-eslint/no-explicit-any": "warn"
       }
     },
     {
