@@ -1,0 +1,119 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px; /* Adjust padding as needed */
+  margin-left: 30px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.logo::first-letter {
+  color: blue;
+}
+
+.navBar a {
+  margin: 0 10px; /* Adjust margin as needed */
+  text-decoration: none;
+  color: black; /* Adjust color as needed */
+  font-size: 20px;
+}
+
+.loginRegister a {
+  text-decoration: none;
+  color: black; /* Adjust color as needed */
+  font-size: 20px;
+}
+
+.loginRegister span {
+  margin: 0 5px; /* Adjust margin as needed */
+}
+
+.loginRegister {
+  display: flex;
+}
+
+.loginButton,
+.registerButton {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px; /* Adjust border-radius as needed */
+  text-decoration: none;
+  text-align: center;
+}
+
+.registerButton {
+  background-color: #007bff; /* Adjust background color as needed */
+  color: white; /* Adjust text color as needed */
+  cursor: pointer; /* Set cursor to pointer */
+}
+
+.registerButton:hover {
+  background-color: #0056b3; /* Adjust background color on hover */
+}
+
+.loginButton {
+  border: 2px solid #007bff; /* Add border for outline */
+  background-color: transparent; /* Remove background color */
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: darkblue; /* Change background color on hover */
+}
+
+.body {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.body h1 {
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.searchBar {
+  display: flex;
+  max-width: 600px; /* Set maximum width for the search bar */
+  margin: 30px auto; /* Center the search bar horizontally */
+}
+
+.searchBar input {
+  flex: 1; /* Make input fields grow to fill available space */
+  margin-right: 10px; /* Adjust margin as needed */
+  border-radius: 20px;
+}
+
+.searchBar input::placeholder {
+  padding: 10px; /* Add padding to the placeholder */
+}
+
+.btnSearch {
+  background-color: blue; /* Set background color to blue */
+  color: white; /* Set text color to white */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding as needed */
+  border-radius: 25px; /* Add border radius for rounded corners */
+  cursor: pointer;
+}
+
+.btnSearch:hover {
+  background-color: darkblue; /* Change background color on hover */
+}
+
+.popSearch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items horizontally */
+  margin-top: 10px;
+}
+
+.popSearch p {
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: rgba(0, 123, 255, 0.5); /* Transparent blue color */
+  border-radius: 20px; /* Rounded shape */
+  color: #007bff; /* Light blue text color */
+}
