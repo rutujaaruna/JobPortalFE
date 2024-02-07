@@ -9,6 +9,8 @@
 }
 
 body {
-  font-family: monaco, Consolas, monospace;
-  background-color: #b0dbf1;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    /* Overlay */ url("./assets/images/hero_1.jpg"); /* Image */
 }
