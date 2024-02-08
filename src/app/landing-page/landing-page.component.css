@@ -1,9 +1,15 @@
-.header {
+/* Common styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.body header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 20px; /* Adjust padding as needed */
-  margin-left: 30px;
+  padding: 30px 20px;
 }
 
 .logo {
@@ -12,148 +18,22 @@
 }
 
 .logo::first-letter {
-  color: #89ba16;
-}
-
-.navBar a {
-  margin: 0 10px; /* Adjust margin as needed */
-  text-decoration: none;
-  color: black; /* Adjust color as needed */
-  font-size: 20px;
-}
-
-.loginRegister a {
-  text-decoration: none;
-  color: black; /* Adjust color as needed */
-  font-size: 20px;
-  display: inline-block;
-}
-
-.loginRegister li {
-  display: inline-block;
-}
-
-.loginRegister li a {
-  text-decoration: none;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 15px;
-  color: white;
-}
-
-.registerButton {
-  border: 2px solid #89ba16;
-  background-color: #89ba16; /* Adjust background color as needed */
-  cursor: pointer; /* Set cursor to pointer */
-}
-
-.registerButton:hover {
-  background-color: #618709; /* Adjust background color on hover */
-}
-
-.loginButton {
-  border: 2px solid #89ba16; /* Add border for outline */
-  background-color: transparent; /* Remove background color */
-  cursor: pointer;
-}
-
-.loginButton:hover {
-  background-color: #89ba16; /* Change background color on hover */
-}
-
-.body {
-  text-align: center;
-  margin-top: 200px;
-}
-
-.body h1 {
-  margin-bottom: 10px; /* Adjust margin as needed */
-  color: #fff;
-}
-
-.body p {
-  color: #fff;
-}
-
-.searchBar {
-  display: flex;
-  margin: 30px auto; /* Center the search bar horizontally */
-}
-
-.searchBar input {
-  margin-right: 10px; /* Adjust margin as needed */
-  /* height: 40px;
-  width: 500%; */
-  height: 50px; /* Set the height to 40 pixels */
-  border-radius: 10px;
-  box-sizing: border-box;
-  width: 300px;
-  border: 1px solid #ccc;
-}
-
-.searchBar input::placeholder {
-  padding: 10px; /* Add padding to the placeholder */
-}
-
-.btnSearch {
-  background-color: #89ba16; /* Set background color to blue */
-  color: white; /* Set text color to white */
-  border: none; /* Remove default border */
-  padding: 10px 20px; /* Add padding as needed */
-  border-radius: 10px; /* Add border radius for rounded corners */
-  cursor: pointer;
-  width: 200px;
-  height: 50px;
-  /* font-weight: bold; */
-  font-size: 20px;
-}
-
-.btnSearch:hover {
-  background-color: #618709; /* Change background color on hover */
-}
-
-.popSearch {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10px;
-}
-.popSearch p {
-  padding: 5px 10px;
-  margin: 5px;
-  background-color: rgba(42, 240, 111, 0.5);
-  border-radius: 20px;
-  color: white;
-}
-
-/* Media Queries */
-@media screen and (min-width: 600px) {
-  .navBar {
-    display: flex;
-  }
-  .loginRegister {
-    display: block;
-  }
-  .body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .searchBar {
-    flex-direction: row;
-  }
+  color: #800080;
 }
 
 .menu {
-  float: right;
   list-style: none;
-  margin-top: 30px;
-  margin-right: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .menu li {
   display: inline-block;
+  margin-left: 20px; /* Add some space between menu items */
+}
+
+.menu li:first-child {
+  margin-left: 0; /* Remove margin for the first menu item */
 }
 
 .menu li a {
@@ -168,4 +48,137 @@
   background: #fff;
   color: #333;
   border-radius: 10px;
+}
+
+.btn {
+  display: flex;
+  align-items: center; /* Center buttons vertically */
+}
+
+.btn button {
+  color: black;
+  font-size: 15px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  margin-left: 20px; /* Add space between buttons */
+}
+
+.postJob {
+  border: 2px solid #555555;
+  background-color: transparent;
+}
+
+.postJob:hover {
+  background-color: #00bfff;
+}
+
+.registerbtn {
+  border: 2px solid #555555;
+  background-color: #800080;
+}
+
+.registerbtn:hover {
+  background-color: #00bfff;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .body header {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    padding: 20px;
+  }
+
+  .menu {
+    margin-top: 20px; /* Adjust spacing for menu on small screens */
+  }
+
+  .menu li {
+    display: block; /* Display menu items vertically on small screens */
+    margin: 10px 0; /* Add space between menu items */
+  }
+
+  .btn {
+    margin-top: 20px; /* Adjust spacing for buttons on small screens */
+  }
+
+  .btn button {
+    margin-left: 0; /* Remove margin between buttons on small screens */
+  }
+}
+
+.container {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.container p {
+  color: rgba(255, 255, 255, 0.5); /* Transparent white color */
+  font-size: large;
+}
+
+.container h1 {
+  color: #fff;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif; /* Choose an appropriate font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 10px 20px; /* Adjust padding for spacing */
+}
+
+.container form input {
+  margin-right: 10px; /* Adjust margin as needed */
+  /* height: 40px;
+  width: 500%; */
+  margin-top: 20px;
+  height: 50px; /* Set the height to 40 pixels */
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 300px;
+  border: 1px solid #ccc;
+}
+
+.container input::placeholder {
+  padding: 10px; /* Add padding to the placeholder */
+}
+
+.btnSearch {
+  background-color: #800080; /* Set background color to blue */
+  color: white; /* Set text color to white */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding as needed */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  cursor: pointer;
+  width: 200px;
+  height: 53px;
+  /* font-weight: bold; */
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.btnSearch:hover {
+  background-color: #00bfff; /* Change background color on hover */
+}
+
+.keyword {
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.keyword span {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.keyword p {
+  display: inline;
+  margin: 0;
+  font-size: 15px;
+}
+
+.keyword p:not(:last-child)::after {
+  content: ",";
+  margin-right: 5px;
 }

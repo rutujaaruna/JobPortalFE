@@ -4,14 +4,18 @@ import { NotFoundComponent } from './auth/not-found/not-found.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', component:LandingPageComponent},
-  { path: 'auth', redirectTo: 'auth/login', pathMatch: 'full'},
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m=>m.AuthModule) },
-  { path: '**', component: NotFoundComponent }
+  { path: '', component: LandingPageComponent },
+  { path: 'auth', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: 'auth', redirectTo: 'auth/register', pathMatch: 'full' },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

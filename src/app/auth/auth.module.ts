@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { SetPasswordComponent } from './set-password/set-password.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -17,17 +17,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RegisterComponent,
     UnauthorizedComponent,
     SetPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     HttpClientModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
-    
+    AuthRoutingModule,
+    NgSelectModule,
   ],
   providers: [],
-  exports: []
+  exports: [],
 })
 export class AuthModule {}

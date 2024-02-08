@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="body">
+  <div class="container">
+    <h2>Log In</h2>
+    <p>Enter your account details to sign in</p>
+    <div class="form-container">
+      <form>
+        <div class="input-group">
+          <input type="email" placeholder="Username/Email" required />
+          <input type="password" placeholder="Password" required />
+        </div>
+        <div class="remember-me">
+          <input type="checkbox" id="remember-me" name="remember-me" />
+          <label for="remember-me"> Remember Me</label
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#">Forget Your Password?</a>
+        </div>
+        <button (click)="login()">Sign In</button>
+      </form>
+      <div class="icons">
+        <p>Or Login With :</p>
+        <div class="social-icons">
+          <a href="https://www.google.com/" class="icon"
+            ><i class="fa-brands fa-google"></i
+          ></a>
+          <a href="https://www.facebook.com/" class="icon"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="https://twitter.com/" class="icon"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="https://www.linkedin.com/" class="icon"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+      <div class="redirect">
+        <p>Don't have account ?<a href="auth/register"> Signup</a></p>
+      </div>
+    </div>
+  </div>
+</div>

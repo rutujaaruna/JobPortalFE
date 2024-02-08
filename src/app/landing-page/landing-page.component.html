@@ -1,34 +1,37 @@
-<div class="content">
-  <div class="header">
-    <div class="logo">Jobster</div>
+<div class="body">
+  <header>
+    <h1 class="logo">Jobster</h1>
     <ul class="menu">
       <li><a href="#">Home</a></li>
       <li><a href="#">Find Jobs</a></li>
-      <li><a href="#">About Us</a></li>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">contact us</a></li>
     </ul>
-    <ul class="loginRegister">
-      <li><a href="#" class="loginButton">Login</a></li>
-      &nbsp;
-      <li><a href="#" class="registerButton">Register</a></li>
-    </ul>
-  </div>
-  <div class="body">
-    <h1>Find the perfect <span style="color: blue">Job</span> for you</h1>
-    <p>Search your career apportunity through 12,800 jobs</p>
-    <div class="searchBar">
+    <div class="btn">
+      <button class="postJob" (click)="postJob()">
+        <i class="fa-solid fa-plus"></i> Post a job</button
+      >&nbsp;
+      <button class="registerbtn" (click)="register()">Register</button>
+    </div>
+  </header>
+  <div class="container">
+    <p>Discover Jobster Today</p>
+    <h1>Find your New job easiest way with Jobster</h1>
+    <form class="form">
       <input type="text" placeholder="Job title or keyword" />
       <input type="text" placeholder="Location" />
-      <button class="btnSearch">Search</button>
-    </div>
-
-    <div class="popSearch">
-      <h4>Popular Searches :</h4>
-      <p>Work from Home</p>
-      <p>Part-Time</p>
-      <p>Annimation</p>
-      <p>Fianance</p>
-      <p>IT</p>
-      <p>Engineering</p>
+      <button class="btnSearch">
+        <i class="fa-solid fa-magnifying-glass"></i> Search
+      </button>
+    </form>
+    <div class="keyword">
+      <span
+        >Keywords :
+        <p>Web Designer</p>
+        <p>UI/UX Designer</p>
+        <p>Software Engineer</p>
+        <p>MERN Developer</p></span
+      >
     </div>
   </div>
 </div>

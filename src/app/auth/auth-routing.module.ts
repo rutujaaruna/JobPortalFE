@@ -10,15 +10,15 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent},
+      { path: 'register', component: RegisterComponent },
       { path: 'set-password/:token', component: SetPasswordComponent },
-      { path: 'unauthorized', component: UnauthorizedComponent }
-    ]
-  }
+      { path: 'unauthorized', component: UnauthorizedComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AuthRoutingModule {}
