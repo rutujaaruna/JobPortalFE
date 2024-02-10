@@ -8,12 +8,12 @@ interface Role {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
   roles: Role[] = [
     { id: 1, name: 'User' },
-    { id: 2, name: 'Recruiter' },
+    { id: 2, name: 'Recruiter' }
   ];
 
   constructor() {}

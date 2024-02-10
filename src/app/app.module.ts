@@ -14,9 +14,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AppRoutingModule,
     AuthModule,
     PagesModule,
-    NgSelectModule,
+    NgSelectModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
