@@ -29,7 +29,6 @@ export class LoginComponent {
   login() {
     if (this.loginForm.valid) {
       const loginCredentials = this.loginForm.value;
-      loginCredentials.portalType = 'alumni';
         this.api.login(loginCredentials).subscribe((data:any) => {
           if(data.status===200){
             const token=data.data;
