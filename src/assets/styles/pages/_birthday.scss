@@ -34,24 +34,24 @@
                 height: 100px;
                 width: 100px;
                 background-size: cover;
-                background-color: #fff;
+                background-color: white;
                 border-radius: 50%;
                 border: 8px solid white; 
                 position: relative;
                 top: 200px;
                 margin-left: 25px;
-                box-shadow: 0 2px 15px rgb(58, 54, 54);
+                // box-shadow: 0 2px 15px rgb(58, 54, 54);
                 transform: rotate(-24deg);
             }
         
             .shape {
                 height: 250px;
                 width: 400px;
-                background-color: #ab3c6e;
+                background-color: #0F9690;
                 margin-left: -8px;
                 position: relative;
                 top: -80px;
-                box-shadow: 0 2px 15px #ab3c6e;
+                box-shadow: 0 2px 15px #13c8bf;
                 transform: rotate(25deg);
             }
         

@@ -6,7 +6,7 @@
     top: 0;
     width: 100%;
     padding: 0 2rem;
-    background-color:#ab3c6e;
+    background-color:#0F9690;
     transition: left $transitionDuration;
     display: flex;
     align-items: center;
@@ -43,8 +43,8 @@
         transition: background-color $transitionDuration;
 
         &:hover {
-            color: #9b163e;
-            background-color: #ab3c6e;
+            color: #072E33;
+            background-color: #0F9690;
         }
 
         &:focus {

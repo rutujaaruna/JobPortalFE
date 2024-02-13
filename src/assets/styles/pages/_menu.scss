@@ -8,7 +8,7 @@
     top: 7rem;
     left: 2rem;
     transition: transform $transitionDuration, left $transitionDuration;
-    background-color:#ab3c6e;
+    background-color:#0F9690;
     border-radius: $borderRadius;
     padding: 0.5rem 1.5rem;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, .02), 0px 0px 2px rgba(0, 0, 0, .05), 0px 1px 4px rgba(0, 0, 0, .08);
@@ -83,12 +83,12 @@
 
             &.active-route {
                 font-weight: 700;
-                background-color: #9b163e;
+                background-color: #072E33;
                 color: #E6EDEF; 
             }
 
             &:hover {
-                background-color: #9b163e; 
+                background-color: #0C7073; 
                 color: #E6EDEF;
             }
 
