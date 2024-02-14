@@ -1,15 +1,43 @@
-<div class="body">
-  <div class="container">
-    <h2>Registration</h2>
-    <div class="content">
-      <div class="input-box">
-        <select class="custom-select" id="roleSelect">
-          <option value="" disabled selected>Select Role</option>
-          <option value="1">User</option>
-          <option value="2">Recurter</option>
-          <!-- Add more options as needed -->
-        </select>
+<div class="grid m-8">
+  <div class="col-12 xl:col-6 bg-white-500">
+    <h1>Register</h1>
+    <form [formGroup]="registerForm">
+      <div class="input-controls">
+        <i class="pi pi-user"></i
+        ><input
+          type="text"
+          name=""
+          placeholder="Email"
+          required
+          formControlName="email"
+        />
       </div>
-    </div>
+      <div class="input-controls">
+        <i class="pi pi-lock"></i
+        ><input
+          type="password"
+          name=""
+          placeholder="Password"
+          required
+          formControlName="password"
+        />
+      </div>
+      <div class="input-controls">
+        <i class="pi pi-lock"></i
+        ><input
+          type="password"
+          name=""
+          placeholder="Confirm Password"
+          required
+          formControlName="confirmPassword"
+        />
+      </div>
+    </form>
+
+    <button type="submit" class="btn" (click)="register()">Register</button>
+    <p class="signUp">Already have account? <a href="/auth/login">Login</a></p>
+  </div>
+  <div class="col-12 xl:col-6 bg-blue-500">
+    <img alt="" src="assets/images/login.png" />
   </div>
 </div>

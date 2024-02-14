@@ -1,41 +1,48 @@
-<div class="body">
-  <div class="container">
-    <h2>Log In</h2>
-    <p>Enter your account details to sign in</p>
-    <div class="form-container">
-      <form [formGroup]="loginForm">
-        <div class="input-group">
-          <input type="email" placeholder="Username/Email" required  formControlName="email"/>
-          <input type="password" placeholder="Password" required formControlName="password"/>
-        </div>
-        <div class="remember-me">
-          <input type="checkbox" id="remember-me" name="remember-me" />
-          <label for="remember-me"> Remember Me</label
-          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="#">Forget Your Password?</a>
-        </div>
-        <button (click)="login()">Sign In</button>
-      </form>
-      <div class="icons">
-        <p>Or Login With :</p>
-        <div class="social-icons">
-          <a href="https://www.google.com/" class="icon"
-            ><i class="fa-brands fa-google"></i
-          ></a>
-          <a href="https://www.facebook.com/" class="icon"
-            ><i class="fa-brands fa-facebook-f"></i
-          ></a>
-          <a href="https://twitter.com/" class="icon"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="https://www.linkedin.com/" class="icon"
-            ><i class="fa-brands fa-linkedin-in"></i
-          ></a>
-        </div>
+<div class="grid m-8">
+  <div class="col-12 xl:col-6 bg-white-500">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm">
+      <div class="input-controls">
+        <i class="pi pi-user"></i
+        ><input
+          type="text"
+          name=""
+          placeholder="Email"
+          required
+          formControlName="email"
+        />
       </div>
-      <div class="redirect">
-        <p>Don't have account ?<a href="auth/register"> Signup</a></p>
+      <div class="input-controls">
+        <i class="pi pi-lock"></i
+        ><input
+          type="password"
+          name=""
+          placeholder="Password"
+          required
+          formControlName="password"
+        />
       </div>
+    </form>
+
+    <div class="rememberMe flex gap-2 flex-wrap pb-4">
+      <input type="checkbox" id="rememberMeCheckbox" />
+      <label for="rememberMeCheckbox">Remember Me</label>
+      <a href="#">Forget Password</a>
     </div>
+
+    <button type="submit" class="btn" (click)="login()">Login</button>
+    <p class="signUp">No Acount Yet? <a href="/auth/register">Register</a></p>
+    <div class="social pt-3">
+      <p>Or Login With :</p>
+      <ul class="icons gap-2 pt-3">
+        <a href=""><i class="pi pi-google"></i></a>
+        <a href=""><i class="pi pi-facebook"></i></a>
+        <a href=""><i class="pi pi-twitter"></i></a>
+        <a href=""><i class="pi pi-linkedin"></i></a>
+      </ul>
+    </div>
+  </div>
+  <div class="col-12 xl:col-6 bg-blue-500">
+    <img alt="" src="assets/images/login.png" />
   </div>
 </div>
