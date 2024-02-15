@@ -18,6 +18,16 @@ import { SavedJobComponent } from './saved-job/saved-job.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { AddJobComponent } from './recruiter/add-job/add-job.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+import { ChipsModule } from 'primeng/chips';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditorModule } from 'primeng/editor';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToastModule } from 'primeng/toast';
+
 
 @NgModule({
   declarations: [
@@ -34,14 +44,23 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     AppliedJobComponent,
     SavedJobComponent,
     ProfileComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    AddJobComponent
     
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     CardModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    InputTextModule,
+    DropdownModule,
+    CalendarModule,
+    ChipsModule,
+    ReactiveFormsModule,
+    EditorModule,
+    InputTextareaModule,
+    ToastModule
   ]
 })
 export class PagesModule { }

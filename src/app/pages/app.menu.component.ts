@@ -13,6 +13,7 @@ export class AppMenuComponent implements OnInit {
     constructor(public layoutService: LayoutService) { }
 
     ngOnInit() {
+      localStorage.getItem('token')
         this.model = [
           {
             label: '', 
@@ -22,7 +23,8 @@ export class AppMenuComponent implements OnInit {
                 { label: 'Applied Job', icon: 'pi pi-fw pi-user', routerLink: ['/pages/applied-job'] },
                 { label: 'Saved Job', icon: 'pi pi-fw pi-users', routerLink: ['/pages/saved-job'] },
                 { label: 'Profile', icon: 'pi pi-fw pi-book', routerLink: ['/pages/profile'] },
-                { label: 'About-Us', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/about-us'] }
+                { label: 'About-Us', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/about-us'] },
+                { label: 'Post Job', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/recruiter/add-job'] }
             ]
           }
         ];

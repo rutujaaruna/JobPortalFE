@@ -14,9 +14,11 @@ import { catchError } from 'rxjs/operators';
 export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Check if the request is targeting a specific origin
-    if (request.url.startsWith('http://localhost:3000')) {
+    
+    // if (request.url.startsWith('http://localhost:3000')) {
+      
       // Retrieve the authentication token from localStorage
-      const authToken = localStorage.getItem('token');
+      const authToken = localStorage.getItem('token');      
       
       // Clone the request and add the Authorization header if token exists
       let authReq = request;
@@ -41,9 +43,9 @@ export class AuthInterceptor implements HttpInterceptor {
           return of(customResponse);
         })
       );
-    } else {
-      // This request is not going to "localhost:3000," proceed with the original request
-      return next.handle(request);
-    }
+    // } else {
+    //   // This request is not going to "localhost:3000," proceed with the original request
+    //   return next.handle(request);
+    // }
   }
 }

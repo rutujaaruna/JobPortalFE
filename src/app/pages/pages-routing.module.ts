@@ -7,6 +7,7 @@ import { AppliedJobComponent } from './applied-job/applied-job.component';
 import { SavedJobComponent } from './saved-job/saved-job.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AddJobComponent } from './recruiter/add-job/add-job.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'applied-job', component: AppliedJobComponent },
       { path: 'saved-job', component: SavedJobComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'about-us', component: AboutUsComponent }
+      { path: 'about-us', component: AboutUsComponent },
+      {path:'recruiter/add-job',component:AddJobComponent}
     ]
   }
 ];

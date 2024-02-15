@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 // import jwt_decode from "jwt-decode";
-// import { SocketService } from '../socket/socket.service';
 
 type UserTokenType = {
   exp: number;

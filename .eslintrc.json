@@ -31,30 +31,7 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ],
-        "no-console": "warn", // Add this line to disallow console.log
-        "semi": ["warn", "always"],
-        "no-duplicate-imports": "warn",
-        "func-style": [
-            "warn",
-            "declaration",
-            {
-                "allowArrowFunctions": true
-            }
-        ],
-        "no-extra-semi": "warn",
-        "block-spacing": "warn",
-        "comma-dangle": "warn",
-        "comma-spacing": [
-            "warn",
-            {
-                "before": false,
-                "after": true
-            }
-        ],
-        "no-multi-spaces":"warn",
-        "no-restricted-imports":"warn",
-        "@typescript-eslint/no-explicit-any": "warn"
+        ]
       }
     },
     {
@@ -64,8 +41,14 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
+        // "airbnb-base",
+        // "airbnb-typescript/base"
       ],
-      "rules": {}
+      "rules": {
+        // Add your specific rules or overrides here
+        "@angular-eslint/template/interactive-supports-focus": "off", // Disable the rule
+        "@angular-eslint/template/click-events-have-key-events": "off" // Disable the rule
+      }
     }
   ]
 }
