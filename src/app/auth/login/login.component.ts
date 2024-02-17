@@ -38,6 +38,7 @@ export class LoginComponent {
         if (data.status === 200) {
           const token = data.data;
           localStorage.setItem('token', token);
+          this.router.navigateByUrl('pages/profile');
           // navigate to dashboard page based on user role
         } else if (data.status === 422) {
           alert(data.error);
