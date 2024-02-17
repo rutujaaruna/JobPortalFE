@@ -15,3 +15,18 @@ export type register = {
   password: string;
   confirmPassword: string;
 };
+
+// Generic interface for API response
+export interface ResponseType<T> {
+  status: number;
+  data: T | null; // Use a specific type (T) for the data property
+  error: string | null | unknown; // Use a specific type (E) for the error property
+}
+
+export interface profileData {
+  firstName: string;
+  lastName: string;
+  role: string;
+  companyName: string;
+  designation: string;
+}

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-// import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 
 type UserTokenType = {
   exp: number;
@@ -13,7 +13,7 @@ type UserTokenType = {
     firstName: string;
     gender: string;
     lastLoginDate: string;
-    isVerified:number | boolean;
+    isVerified: number | boolean;
     lastName: string;
     middleName: string;
     password: string;
@@ -22,10 +22,9 @@ type UserTokenType = {
     registrationDate: string;
     role: string;
   };
-  
 };
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilService {
   router: Router = inject(Router);
@@ -42,20 +41,20 @@ export class UtilService {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ];
 
   // Define the academic streams as an array of objects
   academicStreams: { name: string }[] = [
     {
-      name: 'Science'
+      name: 'Science',
     },
     {
-      name: 'Commerce'
+      name: 'Commerce',
     },
     {
-      name: 'Arts'
-    }
+      name: 'Arts',
+    },
   ];
 
   //array of years
@@ -77,14 +76,16 @@ export class UtilService {
   }
 
   decodeJwtToken(jwt: string) {
-    // const decoded: UserTokenType = jwt_decode(jwt);
-    // return decoded.id;
+    const decoded: UserTokenType = jwt_decode(jwt);
+    return decoded.id;
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem('token');
   }
 
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['auth', 'login']);
   }
-
-
 }

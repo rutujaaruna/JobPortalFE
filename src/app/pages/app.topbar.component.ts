@@ -1,6 +1,12 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
-import { LayoutService } from "../services/app.layout.service";
+import { LayoutService } from '../services/app.layout.service';
 import { UtilService } from '../utils/util.service';
 import { Router } from '@angular/router';
 
@@ -41,13 +47,10 @@ export class AppTopBarComponent implements OnInit {
     this.isUserOnDesktop = window.innerWidth > 1408;
   }
 
-
   //viewProfile function to navigate to user Profile page
   viewProfile() {
-    console.log('View profile');
     this.router.navigate(['pages', 'view']);
   }
-
 
   //signOut function to logout and navigate to login page
   signOut() {

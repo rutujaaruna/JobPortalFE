@@ -1,17 +1,19 @@
 <ul class="layout-birthday">
-
-    <div class="container">
-        <div class="shape">
-            <img class="image" alt="avatar1" 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGf_8UZ3xLijdkOtv3qWnUpyknARbKMrcVJA&usqp=CAU" />
-            <!-- <img class="image" [src]="photoURL" *ngIf="profilePic !== null" alt="Profile Pic"> -->
-        </div>
-        <h3>firstName LastName</h3>
-        <h3 class="title">designation</h3>
-        <p>company name/profile</p>
+  <div class="container">
+    <div class="shape">
+      <img
+        class="image"
+        alt="avatar1"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGf_8UZ3xLijdkOtv3qWnUpyknARbKMrcVJA&usqp=CAU"
+      />
+      <!-- <img class="image" [src]="photoURL" *ngIf="profilePic !== null" alt="Profile Pic"> -->
     </div>
-    <!-- <p-divider></p-divider> -->
-    <!-- <div>
+    <h3>{{ profileData.firstName }} {{ profileData.lastName }}</h3>
+    <h3 class="title">designation</h3>
+    <p>company name/profile</p>
+  </div>
+  <!-- <p-divider></p-divider> -->
+  <!-- <div>
         <span class="header-text">🎉 Upcoming Birthdays 🎂</span>
         <div class="birthday-content" *ngFor="let birthday of upcomingBirthdays">
            
@@ -24,5 +26,4 @@
           </div>
           
             </div> -->
-      
 </ul>

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
   constructor(private router: Router) {}
@@ -12,7 +12,6 @@ export class LandingPageComponent {
   ngOnInit() {}
 
   postJob() {
-    console.log('Hiiii');
     this.router.navigateByUrl('auth/login');
   }
 

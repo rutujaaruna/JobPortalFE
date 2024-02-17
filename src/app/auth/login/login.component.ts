@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UtilService } from 'src/app/utils/util.service';
 
 @Component({
   selector: 'app-login',
@@ -27,18 +28,23 @@ export class LoginComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private api: AuthService
+    private api: AuthService,
+    private utils: UtilService
   ) {}
 
   login() {
-    console.log('sdsadasd', this.loginForm);
     if (this.loginForm.valid) {
       const loginCredentials = this.loginForm.value;
       this.api.login(loginCredentials).subscribe((data: any) => {
         if (data.status === 200) {
           const token = data.data;
           localStorage.setItem('token', token);
-          // navigate to dashboard page based on user role
+          const userData = this.utils.decodeJwtToken(token);
+          if (userData && userData.role === 'recruiter') {
+            this.router.navigateByUrl('pages/recruiter/dashboard');
+          } else {
+            this.router.navigateByUrl('pages/user/job-list');
+          }
         } else if (data.status === 422) {
           alert(data.error);
         } else {

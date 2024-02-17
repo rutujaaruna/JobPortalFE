@@ -39,7 +39,6 @@ export class RegisterComponent {
   ngOnInit() {}
 
   register() {
-    console.log('this', this.registerForm.value);
     if (this.registerForm.valid) {
       const registerValues = this.registerForm.value;
       this.api.register(registerValues).subscribe((res: any) => {

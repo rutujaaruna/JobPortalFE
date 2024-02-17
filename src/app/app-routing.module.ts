@@ -8,18 +8,22 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'auth', redirectTo: 'auth/login', pathMatch: 'full' },
   { path: 'auth', redirectTo: 'auth/register', pathMatch: 'full' },
-  { path: 'profile-complete', component:EditProfileComponent},
+  { path: 'profile-complete', component: EditProfileComponent },
   { path: 'pages', redirectTo: 'pages/dashboard', pathMatch: 'full' },
-  { path: 'pages', loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule) },
+  {
+    path: 'pages',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+  },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

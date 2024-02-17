@@ -1,26 +1,21 @@
-
-import { Injectable, inject } from "@angular/core";
-import {
-  HttpClient,
-  HttpHeaders
-} from '@angular/common/http';
-import { environment } from "environments/environment";
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 // import { data } from "../types/job.type";
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 export interface ServerResponse {
   success: boolean;
   msg: string;
 }
 
-type postApiBodyType = FormData |unknown ;
+type postApiBodyType = FormData | unknown;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ApiService {
   private baseUrl = environment.apiUrl;
-//   private erpUrl=environment.erpOnBoarding_url
+  //   private erpUrl=environment.erpOnBoarding_url
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   private httpClient: HttpClient = inject(HttpClient);
@@ -46,11 +41,17 @@ export class ApiService {
   }
 
   // download file
-  downloadFile(endPointName: string, bodyData?: postApiBodyType): Observable<Blob> {    
-    if(!bodyData){
-      return this.httpClient.get(`${this.baseUrl}${endPointName}`, { responseType: 'blob' });
+  downloadFile(
+    endPointName: string,
+    bodyData?: postApiBodyType
+  ): Observable<Blob> {
+    if (!bodyData) {
+      return this.httpClient.get(`${this.baseUrl}${endPointName}`, {
+        responseType: 'blob',
+      });
     }
-    return this.httpClient.post(`${this.baseUrl}${endPointName}`, bodyData, { responseType: 'blob' });
+    return this.httpClient.post(`${this.baseUrl}${endPointName}`, bodyData, {
+      responseType: 'blob',
+    });
   }
-
 }

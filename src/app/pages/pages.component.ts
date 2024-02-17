@@ -7,7 +7,7 @@ import { AppTopBarComponent } from './app.topbar.component';
 
 @Component({
   selector: 'app-pages',
-  templateUrl: './pages.component.html'
+  templateUrl: './pages.component.html',
 })
 export class PagesComponent implements OnDestroy {
   overlayMenuOpenSubscription: Subscription;
@@ -17,7 +17,6 @@ export class PagesComponent implements OnDestroy {
   profileMenuOutsideClickListener: any;
 
   @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
-
 
   @ViewChild(AppTopBarComponent) appTopbar!: AppTopBarComponent;
 
@@ -49,7 +48,6 @@ export class PagesComponent implements OnDestroy {
           );
         }
 
-
         if (!this.profileMenuOutsideClickListener) {
           this.profileMenuOutsideClickListener = this.renderer.listen(
             'document',
@@ -76,7 +74,6 @@ export class PagesComponent implements OnDestroy {
         if (this.layoutService.state.staticMenuMobileActive) {
           this.blockBodyScroll();
         }
-
       });
 
     this.router.events
@@ -88,7 +85,6 @@ export class PagesComponent implements OnDestroy {
 
     this.isDesktop();
   }
-
 
   hideMenu() {
     this.layoutService.state.overlayMenuActive = false;
@@ -132,8 +128,6 @@ export class PagesComponent implements OnDestroy {
   }
 
   isDesktop() {
-    console.log('desktop');
-
     return window.innerWidth > 991;
   }
 
@@ -149,7 +143,7 @@ export class PagesComponent implements OnDestroy {
       'layout-overlay-active': this.layoutService.state.overlayMenuActive,
       'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
       'p-input-filled': this.layoutService.config.inputStyle === 'filled',
-      'p-ripple-disabled': !this.layoutService.config.ripple
+      'p-ripple-disabled': !this.layoutService.config.ripple,
     };
   }
 
@@ -161,7 +155,5 @@ export class PagesComponent implements OnDestroy {
     if (this.menuOutsideClickListener) {
       this.menuOutsideClickListener();
     }
-
   }
 }
-
