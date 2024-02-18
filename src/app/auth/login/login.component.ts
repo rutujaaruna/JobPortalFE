@@ -10,8 +10,7 @@ import { UtilService } from 'src/app/utils/util.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  password: string = '';
-  hidePassword: boolean = true;
+  public hidePassword: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [
@@ -54,9 +53,5 @@ export class LoginComponent {
     } else {
       alert('Please enter email & password');
     }
-  }
-
-  togglePasswordVisibility() {
-    this.hidePassword = !this.hidePassword;
   }
 }

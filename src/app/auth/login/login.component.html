@@ -3,24 +3,48 @@
     <h1>Login</h1>
     <form [formGroup]="loginForm">
       <div class="input-controls">
-        <i class="pi pi-user"></i
-        ><input
-          type="text"
-          name=""
-          placeholder="Email"
-          required
-          formControlName="email"
-        />
+        <i class="pi pi-user"></i><input type="text" name="" placeholder="Email" required formControlName="email"
+          [ngClass]="{
+            'is-invalid':
+              loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+          }" />
+        <b *ngIf="
+            !loginForm.get('email')?.valid &&
+            (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+          ">
+          <div style="color: red" [hidden]="!loginForm.get('email')?.errors?.['required']">
+            Email is required
+          </div>
+          <div style="color: red" [hidden]="!loginForm.get('email')?.errors?.['email']">
+            Please enter a valid email
+          </div>
+        </b>
       </div>
       <div class="input-controls">
-        <i class="pi pi-lock"></i
-        ><input
-          type="password"
-          name=""
-          placeholder="Password"
-          required
-          formControlName="password"
-        />
+        <i class="pi pi-lock"></i><input type="password" name="" placeholder="Password" required
+          formControlName="password" [type]="hidePassword ? 'text' : 'passWord'" [ngClass]="{
+            'is-invalid':
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.invalid
+          }" />
+        <div class="eye">
+          <i alt="show" class="pi pi-eye eye-show" [hidden]="hidePassword" (click)="hidePassword = !hidePassword"
+            [class.hide]="hidePassword"></i>
+          <i alt="hide" class="pi pi-eye-slash eye-hide" [hidden]="!hidePassword" (click)="hidePassword = !hidePassword"
+            [class.hide]="!hidePassword"></i>
+        </div>
+        <b *ngIf="
+                    !loginForm.get('password')?.valid &&
+                    (loginForm.get('password')?.dirty ||
+                      loginForm.get('password')?.touched)
+                  ">
+          <div style="color: red" [hidden]="!loginForm.get('password')?.errors?.['required']">
+            Password is required
+          </div>
+          <div style="color: red" [hidden]="!loginForm.get('password')?.errors?.['minlength']">
+            The minimum password length is 6 characters
+          </div>
+        </b>
       </div>
     </form>
 
@@ -31,7 +55,7 @@
     </div>
 
     <button type="submit" class="btn" (click)="login()">Login</button>
-    <p class="signUp">No Acount Yet? <a href="/auth/register">Register</a></p>
+    <p class="signUp">No Account Yet? <a href="/auth/register">Register</a></p>
     <div class="social pt-3">
       <p>Or Login With :</p>
       <ul class="icons gap-2 pt-3">

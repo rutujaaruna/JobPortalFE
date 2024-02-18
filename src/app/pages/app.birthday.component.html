@@ -8,9 +8,9 @@
       />
       <!-- <img class="image" [src]="photoURL" *ngIf="profilePic !== null" alt="Profile Pic"> -->
     </div>
-    <h3>{{ profileData.firstName }} {{ profileData.lastName }}</h3>
-    <h3 class="title">designation</h3>
-    <p>company name/profile</p>
+    <h3>{{ profileData?.firstName }} {{ profileData?.lastName }}</h3>
+    <h3 class="title">{{ profileData?.designation }}</h3>
+    <p>{{ profileData?.companyName }}</p>
   </div>
   <!-- <p-divider></p-divider> -->
   <!-- <div>

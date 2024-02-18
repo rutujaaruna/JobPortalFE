@@ -57,6 +57,7 @@ export class AppBirthdayComponent {
     this.apiService.getApi(`/user/getProfileData`).subscribe((res: any) => {
       if (res.status === 200) {
         this.profileData = res.data;
+        console.log('this', this.profileData);
       } else {
         alert('Data not found');
       }

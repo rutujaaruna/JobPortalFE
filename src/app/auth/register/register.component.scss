@@ -54,6 +54,16 @@
   padding: 1px;
 }
 
+.input-controls .eye {
+  background: transparent;
+  position: absolute;
+  right: 15%; /* Position eye icon 5% from the right edge of the input container */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  padding: 1px;
+}
+
 .btn {
   display: block;
   width: 90%;
@@ -108,3 +118,9 @@ a {
   padding-right: 10px; /* Adjust the padding as needed */
   font-size: 20px;
 }
+
+.input-controls .is-invalid {
+  border: 1px solid red; /* or whatever border style you want */
+}
+
+

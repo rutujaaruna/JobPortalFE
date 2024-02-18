@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,15 +7,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
+  isDropdownOpen: boolean = false;
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  postJob() {
+  login() {
     this.router.navigateByUrl('auth/login');
   }
 
-  register() {
-    this.router.navigateByUrl('auth/register');
+  register(type:string) {
+     this.router.navigate(['/auth/register'], { queryParams: { type } });
   }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+
+
 }
