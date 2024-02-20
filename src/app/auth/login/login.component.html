@@ -1,4 +1,4 @@
-<div class="grid p-8 bg-white-500">
+<!-- <div class="grid p-8 bg-white-500">
   <div class="col-12 xl:col-6">
     <h1>Login</h1>
     <form [formGroup]="loginForm">
@@ -69,4 +69,83 @@
   <div class="col-12 xl:col-6">
     <img alt="" src="assets/images/4565.jpg" />
   </div>
-</div>
+</div> -->
+
+<body>
+  <div class="container">
+    <div class="login-section">
+      <div class="row">
+        <div class="col-md-6 left-section">
+          <h1>Login</h1>
+          <form [formGroup]="loginForm">
+            <div class="input-controls">
+              <i class="pi pi-user"></i><input type="text" name="" placeholder="Email" required formControlName="email"
+                [ngClass]="{
+                  'is-invalid':
+                    loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+                }" />
+              <b *ngIf="
+                  !loginForm.get('email')?.valid &&
+                  (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+                ">
+                <div style="color: red" [hidden]="!loginForm.get('email')?.errors?.['required']">
+                  Email is required
+                </div>
+                <div style="color: red" [hidden]="!loginForm.get('email')?.errors?.['email']">
+                  Please enter a valid email
+                </div>
+              </b>
+            </div>
+            <div class="input-controls">
+              <i class="pi pi-lock"></i><input type="password" name="" placeholder="Password" required
+                formControlName="password" [type]="hidePassword ? 'text' : 'passWord'" [ngClass]="{
+                  'is-invalid':
+                    loginForm.get('password')?.touched &&
+                    loginForm.get('password')?.invalid
+                }" />
+              <div class="eye">
+                <i alt="show" class="pi pi-eye eye-show" [hidden]="hidePassword" (click)="hidePassword = !hidePassword"
+                  [class.hide]="hidePassword"></i>
+                <i alt="hide" class="pi pi-eye-slash eye-hide" [hidden]="!hidePassword" (click)="hidePassword = !hidePassword"
+                  [class.hide]="!hidePassword"></i>
+              </div>
+              <b *ngIf="
+                          !loginForm.get('password')?.valid &&
+                          (loginForm.get('password')?.dirty ||
+                            loginForm.get('password')?.touched)
+                        ">
+                <div style="color: red" [hidden]="!loginForm.get('password')?.errors?.['required']">
+                  Password is required
+                </div>
+                <div style="color: red" [hidden]="!loginForm.get('password')?.errors?.['minlength']">
+                  The minimum password length is 6 characters
+                </div>
+              </b>
+            </div>
+          </form>
+      
+          <div class="rememberMe flex gap-2 flex-wrap pb-4">
+            <input type="checkbox" id="rememberMeCheckbox" />
+            <label for="rememberMeCheckbox">Remember Me</label>
+            <a href="#">Forget Password</a>
+          </div>
+      
+          <button type="submit" class="btn" (click)="login()">Login</button>
+          <p class="signUp">No Account Yet? <a href="/auth/register">Register</a></p>
+          <div class="social pt-3">
+            <p>Or Login With :</p>
+            <ul class="icons gap-2 pt-3">
+              <a href=""><i class="pi pi-google"></i></a>
+              <a href=""><i class="pi pi-facebook"></i></a>
+              <a href=""><i class="pi pi-twitter"></i></a>
+              <a href=""><i class="pi pi-linkedin"></i></a>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 right-section">
+          <img src="assets/images/4565.jpg" alt="Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

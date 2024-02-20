@@ -1,26 +1,162 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #fff;
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   background-color: #fff;
+// }
+
+// .grid {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh; /* Set height to viewport height or any desired height */
+// }
+
+// .col-12 {
+//   padding: 20px;
+// }
+
+// .col-12 h1 {
+//   text-align: center;
+//   color: #000;
+//   font-weight: bold;
+//   margin-bottom: 50px;
+// }
+
+// .input-controls {
+//   margin-bottom: 20px;
+//   margin-top: 30px;
+//   position: relative;
+// }
+
+// .input-controls input {
+//   border-radius: 3px;
+//   background: transparent;
+//   outline: none;
+//   border: 1px solid #000;
+//   width: 90%;
+//   height: 40px;
+//   padding-left: 35px;
+// }
+
+// ::placeholder {
+//   color: #777;
+// }
+
+// .input-controls i {
+//   background: transparent;
+//   position: absolute;
+//   left: 10px;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   // color: #55efc4;
+//   font-size: 15px;
+//   padding: 1px;
+// }
+
+// .input-controls .eye {
+//   background: transparent;
+//   position: absolute;
+//   right: 15%; /* Position eye icon 5% from the right edge of the input container */
+//   top: 50%;
+//   transform: translateY(-50%);
+//   font-size: 15px;
+//   padding: 1px;
+// }
+
+// .btn {
+//   display: block;
+//   width: 90%;
+//   height: 40px;
+//   padding: 10px;
+//   border: none;
+//   border-radius: 5px;
+//   background-color: #4caf50;
+//   color: #fff;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
+
+// .btn:hover {
+//   background-color: #45a049;
+// }
+
+// .bg-green-500 {
+//   background-color: #4caf50;
+// }
+
+// .bg-blue-500 {
+//   background-color: #2196f3;
+// }
+
+// img {
+//   max-width: 100%;
+//   height: auto;
+// }
+
+// .rememberMe label,
+// a {
+//   color: #000;
+//   flex: 1;
+// }
+
+// .signUp {
+//   text-align: center;
+//   padding-top: 10px;
+// }
+
+// .social {
+//   text-align: center;
+// }
+
+// .icons {
+//   list-style: none;
+//   padding: 0;
+// }
+
+// .icons i {
+//   padding-right: 10px; /* Adjust the padding as needed */
+//   font-size: 20px;
+// }
+
+// .input-controls .is-invalid {
+//   border: 1px solid red; /* or whatever border style you want */
+// }
+
+
+body {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+              radial-gradient(77.36% 256.97% at 77.36% 57.52%, #d2dfe4 0%, #d2e4ee 40%);
+  // background:#fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
-.grid {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Set height to viewport height or any desired height */
+  height: 100vh;
 }
 
-.col-12 {
+.login-section {
+  // background:linear-gradient(0deg, rgba(234, 186, 186, 0.2), rgba(190, 160, 160, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, #EBEDA0 0%, #A7CBE6 100%);;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.left-section {
   padding: 20px;
+  flex: 1;
+  text-align: center;
 }
 
-.col-12 h1 {
-  text-align: center;
-  color: #000;
-  font-weight: bold;
-  margin-bottom: 50px;
+.right-section {
+  flex: 1;
+  margin-top: 80px;
+}
+.right-section img{
+  mix-blend-mode: color-burn;
 }
 
 .input-controls {
@@ -49,7 +185,6 @@
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  // color: #55efc4;
   font-size: 15px;
   padding: 1px;
 }
@@ -81,19 +216,6 @@
   background-color: #45a049;
 }
 
-.bg-green-500 {
-  background-color: #4caf50;
-}
-
-.bg-blue-500 {
-  background-color: #2196f3;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 .rememberMe label,
 a {
   color: #000;
@@ -121,4 +243,18 @@ a {
 
 .input-controls .is-invalid {
   border: 1px solid red; /* or whatever border style you want */
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .right-section {
+    display: none;
+  }
+  .left-section {
+    flex: none;
+    width: 100%;
+  }
 }

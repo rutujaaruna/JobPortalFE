@@ -83,6 +83,7 @@
 .main p{
   color: rgba(255, 255, 255, 0.5); /* Transparent white color */
   font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .main h1{
@@ -93,15 +94,17 @@
 }
 
 .main input{
-  height: 71px;
+  height: 60px;
   width: 70%;
   border: none;
   outline: none;
   padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
 }
 
 .btn2{
-  height: 71px;
+  height: 61px;
   width: 25%;
   background-color: rgb(243,73,73);
   color: white;
@@ -110,6 +113,7 @@
   cursor: pointer;
   transition: all 0.4s;
   margin-left: -0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn2:hover{
@@ -119,11 +123,13 @@
 
 .red{
   color: red;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .ceta h1{
   font-size: 3.5rem;
   color: rgb(7,7,78);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .ceta .card:hover{
@@ -295,6 +301,12 @@
 .bottom  a:hover{
   text-decoration: underline;
 }
+
+.dropdown-item{
+  cursor: pointer;
+  background-color: transparent; 
+}
+
 
 @media screen and (max-width:900px) {
   footer{
