@@ -10,6 +10,7 @@ import { UtilService } from 'src/app/utils/util.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  isDropdownOpen: boolean = false;
   public hidePassword: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
@@ -53,5 +54,13 @@ export class LoginComponent {
     } else {
       alert('Please enter email & password');
     }
-  }
+  };
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  };
+
+  register(type:string) {
+     this.router.navigate(['/auth/register'], { queryParams: { type } });
+  };
 }

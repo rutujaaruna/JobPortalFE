@@ -1,126 +1,69 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  font-family: 'Nunito Sans', sans-serif;
   background-color: #fff;
+
 }
 
-.grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Set height to viewport height or any desired height */
-}
-
-.col-12 {
-  padding: 20px;
-}
-
-.col-12 h1 {
-  text-align: center;
-  color: #000;
-  font-weight: bold;
-  margin-bottom: 50px;
-}
-
-.input-controls {
-  margin-bottom: 20px;
-  margin-top: 30px;
-  position: relative;
-}
-
-.input-controls input {
-  border-radius: 3px;
-  background: transparent;
-  outline: none;
-  border: 1px solid #000;
-  width: 90%;
-  height: 40px;
-  padding-left: 35px;
-}
-
-::placeholder {
-  color: #777;
-}
-
-.input-controls i {
-  background: transparent;
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  // color: #55efc4;
-  font-size: 15px;
-  padding: 1px;
-}
-
-.input-controls .eye {
-  background: transparent;
-  position: absolute;
-  right: 15%; /* Position eye icon 5% from the right edge of the input container */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 15px;
-  padding: 1px;
-}
-
-.btn {
-  display: block;
-  width: 90%;
-  height: 40px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-.bg-green-500 {
-  background-color: #4caf50;
-}
-
-.bg-blue-500 {
-  background-color: #2196f3;
-}
-
-img {
-  max-width: 100%;
+.bg-holder img{
+  width: 100%;
   height: auto;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.rememberMe label,
-a {
+.btn{
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.btn i{
+  vertical-align: text-top;
+  background-color: transparent;
+}
+
+.divider-content-center{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #999;
+}
+
+.divider{
+  margin: 2rem 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.btn-outline-custom{
+  color: #31374a;
+  border-color: #ddd;
+}
+
+.btn-outline-custom:hover{
+  color: #31374a;
+  border-color: #eee;
+  background-color: #eee;
+}
+
+.btn{
   color: #000;
-  flex: 1;
+  width: 50%;
 }
 
-.signUp {
-  text-align: center;
-  padding-top: 10px;
-}
-
-.social {
-  text-align: center;
-}
-
-.icons {
-  list-style: none;
-  padding: 0;
-}
-
-.icons i {
-  padding-right: 10px; /* Adjust the padding as needed */
-  font-size: 20px;
-}
-
-.input-controls .is-invalid {
-  border: 1px solid red; /* or whatever border style you want */
-}
 
 

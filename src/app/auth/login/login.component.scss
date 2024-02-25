@@ -1,143 +1,75 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  font-family: 'Nunito Sans', sans-serif;
   background-color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
-.grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Set height to viewport height or any desired height */
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.loginForm{
-  border: 2px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
-  text-align: center;
-}
-
-.title{
-  font-size: 2.2rem;
-  color: #444;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-form{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.input-field{
-  max-width: 380px;
+.bg-holder img{
   width: 100%;
-  height: 55px;
-  background-color: #f0f0f0;
-  margin: 10px 0;
-  border-radius: 5px;
-  display: grid;
-  grid-template-columns: 15% 85%;
-  padding: 0.4rem;
-}
-
-.input-field i{
-  text-align: center;
-  line-height: 45px;
-  background-color: #f0f0f0;
-  font-size: 1rem;
-}
-
-.input-field input{
-  background: none;
-  outline: none;
-  border: none;
-  line-height: 1;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.input-field input::placeholder{
-  color: #aaa;
-  font-weight: 500;
+  height: auto;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .btn{
-  width: 150px;
-  height: 49px;
-  border: none;
-  outline: none;
-  border-radius: 49px;
-  cursor: pointer;
-  background-color: #5995fd;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
-.btn:hover{
-  background-color: #4d84e2;
+.btn i{
+  vertical-align: text-top;
+  background-color: transparent;
 }
 
-// .forgot a{
-//   color: #000;
-//   margin-right: 160px;
-// }
-
-// .form-check{
-//   margin-left: 180px;
-//   display: inline-block; 
-// }
-
-.social {
-  text-align: center;
-  margin-bottom: 10px;
+.divider-content-center{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #999;
 }
 
-.icons {
-  list-style: none;
-  padding: 0;
+.divider{
+  margin: 2rem 0;
 }
 
-.icons i {
-  padding-right: 10px; /* Adjust the padding as needed */
-  font-size: 20px;
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.btn-outline-custom{
+  color: #31374a;
+  border-color: #ddd;
+}
+
+.btn-outline-custom:hover{
+  color: #31374a;
+  border-color: #eee;
+  background-color: #eee;
+}
+
+.btn{
   color: #000;
+  width: 50%;
 }
 
-/* Hide the image on small screens */
-.responsive-image {
-  display: block;
+.dropdown-item{
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  background-color: transparent; 
 }
 
-/* Responsive adjustments for mobile */
-@media screen and (max-width:900px) {
-  .col-12 {
-    width: 100%;
-    flex: none;
-  }
-  
-  .responsive-image {
-    display: none;
-  }
-  
-  .loginForm {
-    padding: 0 20px; /* Add padding to the form for better spacing */
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    justify-content: center; /* Align items horizontally */
-    align-items: center; /* Align items vertically */
-    text-align: center; /* Center text inside the form */
-  }
-}
+

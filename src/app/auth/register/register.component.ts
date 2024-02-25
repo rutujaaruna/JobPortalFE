@@ -62,10 +62,10 @@ export class RegisterComponent {
       console.log("regsss",registerValues)
       this.api.register(registerValues).subscribe((res: any) => {
         if (res.status === 200) {
-          alert('Registeration successfully done');
+          alert(res.message);
           this.router.navigateByUrl('auth/login');
         } else {
-          alert('Registration falied');
+          alert(res.message);
         }
       });
     } else {

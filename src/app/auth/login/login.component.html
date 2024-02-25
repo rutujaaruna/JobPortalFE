@@ -1,39 +1,85 @@
-<div class="grid p-8 bg-white-500">
-  <div class="col-12 xl:col-6">
-    <img alt="" class="responsive-image" src="assets/images/4565.jpg" />
-  </div>
-  <div class="col-12 xl:col-6 loginForm">
-    <h1 class="title">Login</h1>
-    <form>
-      <div class="input-field">
-        <i class="bi bi-person-fill"></i>
-        <input type="text" placeholder="Email">
-      </div>
-      <div class="input-field">
-        <i class="bi bi-lock-fill"></i>
-        <input type="password" placeholder="Password">
-      </div>
-      <!-- <div class="input-group mb-5 d-flex align-items-center">
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="formCheck">
-          <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
-        </div>
-        <div class="forgot ml-auto">
-          <small><a href="#">Forget Password?</a></small>
-        </div>
-      </div> -->
-      <input type="submit" value="login" class="btn solid">
-      <p>Do you have an Account?<a href="/auth/register" style="color: black;">Register</a> </p>
-      <div class="social pt-3">
-        <p>Or Login With</p>
-        <ul class="icons gap-2 pt-3">
-          <a href=""><i class="bi bi-google"></i></a>
-          <a href=""><i class="bi bi-facebook"></i></a>
-          <a href=""><i class="bi bi-twitter-x"></i></a>
-          <a href=""><i class="bi bi-linkedin"></i></a>
-        </ul>
-      </div>
+<div class="row vh-100 g-0  pt-7">
+  <div class="col-lg-6 d-flex align-items-center justify-content-center">
+    <div class="row align-items-center justify-content-center h-180 g-0 px-4 px-sm-0">
+      <div class="col col-sm-6 col-lg-7 col-xl-6">
+        <div class="text-center mb-5">
+          <h3 class="fw-bold pt-3">Log In</h3>
+          <p class="text-secondary">Get access to your account</p>
 
-    </form>
+          <button
+            class="btn btn-lg btn-outline-secondary btn-outline-custom w-100 mb-3 d-flex align-items-center justify-content-center">
+            <i class="bi bi-google text-danger me-3 fs-6"></i>Login with Google
+          </button>
+          <button
+            class="btn btn-lg btn-outline-secondary btn-outline-custom w-100 d-flex align-items-center justify-content-center">
+            <i class="bi bi-facebook text-primary me-3 fs-6"></i>Login with Facebook
+          </button>
+
+
+          <div class="position-relative">
+            <hr class="text-secondary divider">
+            <div class="divider-content-center">or</div>
+          </div>
+
+          <form [formGroup]="loginForm">
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="bi bi-person"></i>
+              </span>
+              <input type="text" class="form-control form-control-lg fs-6" placeholder="Email" required
+                formControlName="email">
+            </div>
+            <div class="mb-3"
+              *ngIf="!loginForm.get('email')?.valid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+              <div style="color: #de5555;" [hidden]="!loginForm.get('email')?.errors?.['required']">Email is required
+              </div>
+              <div style="color: #de5555;" [hidden]="!loginForm.get('email')?.errors?.['email']">Please enter a valid
+                email
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="bi bi-lock"></i>
+              </span>
+              <input type="password" class="form-control form-control-lg fs-6" placeholder="Password"
+                formControlName="password">
+            </div>
+            <div class="mb-3 "
+              *ngIf="!loginForm.get('password')?.valid && (loginForm.get('password')?.dirty ||loginForm.get('password')?.touched)">
+              <div style="color: #de5555;" [hidden]="!loginForm.get('password')?.errors?.['required']">Password is
+                required</div>
+              <div style="color: #de5555;" [hidden]="!loginForm.get('password')?.errors?.['minlength']">The
+                minimum password length is 6 characters</div>
+            </div>
+            <div class="input-group mb-3 d-flex justify-content-between">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="formCheck">
+                <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+              </div>
+              <div>
+                <small><a href="#" class="text-primary">Forget Password?</a></small>
+              </div>
+            </div>
+            <button class="btn btn-primary me-md-2" type="button" (click)="login()">Login</button>
+          </form>
+
+          <div class="text-center pt-3">
+            <small>Don't have an account? <a href="auth/register" class="fw-bold text-primary"
+                id="registerDropdownButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                (click)="toggleDropdown()">Register</a></small>
+            <ul class="dropdown-menu" aria-labelledby="registerDropdownButton"
+              [style.display]="isDropdownOpen ? 'block' : 'none'">
+              <li><a class="dropdown-item" (click)="register('recruiter')">Register as Recruiter</a></li>
+              <li><a class="dropdown-item" (click)="register('user')">Register as User</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 d-flex align-items-center justify-content-center">
+    <div class="bg-holder position-relative d-none d-lg-block">
+      <img src="assets/images/4565.jpg" alt="">
+    </div>
   </div>
 </div>
