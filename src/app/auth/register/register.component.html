@@ -1,61 +1,60 @@
-<div class="row vh-100 g-0  pt-7">
+<div class="row vh-100 g-0">
   <div class="col-lg-6 d-flex align-items-center justify-content-center">
-    <div class="row align-items-center justify-content-center h-180 g-0 px-4 px-sm-0">
-      <div class="col col-sm-6 col-lg-7 col-xl-6">
-        <div class="text-center mb-5">
-          <h3 class="fw-bold pt-3">Register</h3>
-          <p class="text-secondary">Create your account</p>
-          <form [formGroup]="registerForm">
-            <div class="input-group mb-3">
-              <span class="input-group-text">
-                <i class="bi bi-person"></i>
-              </span>
-              <input type="text" class="form-control form-control-lg fs-6" placeholder="Email" required
-                formControlName="email">
-            </div>
-            <div class="mb-3"
-              *ngIf="!registerForm.get('email')?.valid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
-              <div style="color: #de5555;" [hidden]="!registerForm.get('email')?.errors?.['required']">Email is required
-              </div>
-              <div style="color: #de5555;" [hidden]="!registerForm.get('email')?.errors?.['email']">Please enter a valid
-                email
-              </div>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text">
-                <i class="bi bi-lock"></i>
-              </span>
-              <input type="password" class="form-control form-control-lg fs-6" placeholder="Password"
-                formControlName="password">
-            </div>
-            <div class="mb-3 "
-              *ngIf="!registerForm.get('password')?.valid && (registerForm.get('password')?.dirty ||registerForm.get('password')?.touched)">
-              <div style="color: #de5555;" [hidden]="!registerForm.get('password')?.errors?.['required']">Password is
-                required</div>
-              <div style="color: #de5555;" [hidden]="!registerForm.get('password')?.errors?.['minlength']">The
-                minimum password length is 6 characters</div>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text">
-                <i class="bi bi-lock"></i>
-              </span>
-              <input type="password" class="form-control form-control-lg fs-6" placeholder="Confirm Password"
-                formControlName="confirmPassword">
-            </div>
-            <div class="mb-3" *ngIf="submitted && f['confirmPassword'].errors" style="font-size: 13px; color: #de5555;">
-              <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
-              <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords doesn't match</div>
-            </div>
-            <div class="mb-3" *ngIf="!submitted && f['confirmPassword'].errors"
-              style="font-size: 13px; color: #de5555;">
-              <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords doesn't match</div>
-            </div>
-            <button class="btn btn-primary me-md-2" type="button" (click)="register()">Register</button>
-          </form>
 
-          <div class="text-center pt-3">
-            <small>Already have an account? <a href="auth/login" class="fw-bold text-primary">Login</a></small>
+    <div class="col col-sm-6 col-lg-7 col-xl-6 p-6">
+      <div class="box text-center ml-8 mr-8 p-4">
+        <h3 class="fw-bold pt-3 pb-2 fs-8">Register</h3>
+        <p class="text-secondary pb-4">Create your account</p>
+        <form [formGroup]="registerForm">
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-person"></i>
+            </span>
+            <input type="text" class="form-control form-control-lg fs-6" placeholder="Email" required
+              formControlName="email">
           </div>
+          <div class="mb-3"
+            *ngIf="!registerForm.get('email')?.valid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+            <div style="color: #de5555;" [hidden]="!registerForm.get('email')?.errors?.['required']">Email is required
+            </div>
+            <div style="color: #de5555;" [hidden]="!registerForm.get('email')?.errors?.['email']">Please enter a valid
+              email
+            </div>
+          </div>
+          <div class="input-group mb-4">
+            <span class="input-group-text">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input type="password" class="form-control form-control-lg fs-6" placeholder="Password"
+              formControlName="password">
+          </div>
+          <div class="mb-3 "
+            *ngIf="!registerForm.get('password')?.valid && (registerForm.get('password')?.dirty ||registerForm.get('password')?.touched)">
+            <div style="color: #de5555;" [hidden]="!registerForm.get('password')?.errors?.['required']">Password is
+              required</div>
+            <div style="color: #de5555;" [hidden]="!registerForm.get('password')?.errors?.['minlength']">The
+              minimum password length is 6 characters</div>
+          </div>
+          <div class="input-group mb-5">
+            <span class="input-group-text">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input type="password" class="form-control form-control-lg fs-6" placeholder="Confirm Password"
+              formControlName="confirmPassword">
+          </div>
+          <div class="mb-3" *ngIf="submitted && f['confirmPassword'].errors" style="font-size: 13px; color: #de5555;">
+            <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+            <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords doesn't match</div>
+          </div>
+          <div class="mb-3" *ngIf="!submitted && f['confirmPassword'].errors" style="font-size: 13px; color: #de5555;">
+            <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords doesn't match</div>
+          </div>
+          <button class="btn btn-primary me-md-2 pb-2 pt-2" type="button" (click)="register()">Register</button>
+        </form>
+
+        <div class="text-center pt-5 pb-6">
+          <small class="fs-6">Already have an account? <a href="auth/login"
+              class="fw-bold text-primary">Login</a></small>
         </div>
       </div>
     </div>

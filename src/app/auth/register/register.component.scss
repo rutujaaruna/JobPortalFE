@@ -1,5 +1,7 @@
 *{
-  font-family: 'Nunito Sans', sans-serif;
+  // font-family: 'Nunito Sans', sans-serif;
+  
+  font-family: cursive;
   background-color: #fff;
 
 }
@@ -15,7 +17,7 @@
 }
 
 .btn{
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -64,6 +66,15 @@ a:hover{
   color: #000;
   width: 50%;
 }
+
+.box {
+  /* Add box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Add border */
+  border: 2px solid #70c6bd;
+  border-radius: 3%;
+}
+
 
 
 
