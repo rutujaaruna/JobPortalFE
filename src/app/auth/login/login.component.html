@@ -1,10 +1,9 @@
-<div class="row vh-100 g-0  pt-7">
+<div class="row vh-100 g-0">
   <div class="col-lg-6 d-flex align-items-center justify-content-center">
-    <div class="row align-items-center justify-content-center h-180 g-0 px-4 px-sm-0">
-      <div class="col col-sm-6 col-lg-7 col-xl-6">
-        <div class="text-center mb-5">
-          <h3 class="fw-bold pt-3">Log In</h3>
-          <p class="text-secondary">Get access to your account</p>
+      <div class="col col-sm-6 col-lg-7 col-xl-4 p-6">
+        <div class="box text-center ml-8 mr-8 p-4">
+          <h3 class="fw-bold pt-3 pb-2">Log In</h3>
+          <p class="text-secondary pb-4">Get access to your account</p>
 
           <button
             class="btn btn-lg btn-outline-secondary btn-outline-custom w-100 mb-3 d-flex align-items-center justify-content-center">
@@ -16,7 +15,7 @@
           </button>
 
 
-          <div class="position-relative">
+          <div class="position-relative pt-3 pb-3">
             <hr class="text-secondary divider">
             <div class="divider-content-center">or</div>
           </div>
@@ -60,11 +59,11 @@
                 <small><a href="#" class="text-primary">Forget Password?</a></small>
               </div>
             </div>
-            <button class="btn btn-primary me-md-2" type="button" (click)="login()">Login</button>
+            <button class="btn btn-primary me-md-3 pb-2 pt-2" type="button" (click)="login()">Login</button>
           </form>
 
-          <div class="text-center pt-3">
-            <small>Don't have an account? <a href="auth/register" class="fw-bold text-primary"
+          <div class="text-center pt-5 pb-6">
+            <small class="fs-6">Don't have an account? <a href="auth/register" class="fw-bold text-primary"
                 id="registerDropdownButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 (click)="toggleDropdown()">Register</a></small>
             <ul class="dropdown-menu" aria-labelledby="registerDropdownButton"
@@ -75,7 +74,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
   <div class="col-lg-6 d-flex align-items-center justify-content-center">
     <div class="bg-holder position-relative d-none d-lg-block">

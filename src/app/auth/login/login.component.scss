@@ -1,7 +1,6 @@
 *{
   font-family: 'Nunito Sans', sans-serif;
   background-color: #fff;
-
 }
 
 .bg-holder img{
@@ -15,7 +14,7 @@
 }
 
 .btn{
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -35,6 +34,8 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: #999;
+  font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .divider{
@@ -72,4 +73,10 @@ a:hover{
   background-color: transparent; 
 }
 
-
+.box {
+  /* Add box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Add border */
+  border: 2px solid #70c6bd;
+  border-radius: 3%;
+}
