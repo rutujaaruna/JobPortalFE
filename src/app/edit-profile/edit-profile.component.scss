@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.next{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.header{
+    font-size: 20px;
+    font-weight: 700;
+}
+.pi {
+    color: #0F9690;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+.required {
+    color: red;
+    font-size: 15px;
+}
+.designation{
+    font-size: 12px;
+    color: gray;
+    font-weight: 500;
+}
+.exp{
+    font-size: 13px;
+    font-weight: 600;
+}
+.header:hover{
+    font-size: 21px;
+    font-weight: 700; 
+    color: #0F9690; 
+}
+
+:host ::ng-deep .p-calendar {
+    height: 2.8rem;
+    /* Adjust the height value as needed */
+}
+
+:host ::ng-deep .p-calendar .p-inputtext:hover {
+    border-color: #007EA7; 
+}
+
+:host ::ng-deep .p-calendar .p-datepicker-trigger {
+    background-color:#007EA7;
+}
+
+:host ::ng-deep .p-chips .p-inputtext:hover {
+    border-color: #007EA7;
+}

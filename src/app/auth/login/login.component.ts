@@ -43,7 +43,11 @@ export class LoginComponent {
           if (userData && userData.role === 'recruiter') {
             this.router.navigateByUrl('pages/recruiter/dashboard');
           } else {
-            this.router.navigateByUrl('pages/user/job-list');
+            if( userData.profileVisit === false){
+              this.router.navigateByUrl('profile-complete');
+            }else{
+              this.router.navigateByUrl('pages/user/job-list');
+            }
           }
         } else if (data.status === 422) {
           alert(data.error);
@@ -54,13 +58,13 @@ export class LoginComponent {
     } else {
       alert('Please enter email & password');
     }
-  };
+  }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-  };
+  }
 
   register(type:string) {
      this.router.navigate(['/auth/register'], { queryParams: { type } });
-  };
+  }
 }

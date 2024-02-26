@@ -6,20 +6,15 @@ type UserTokenType = {
   exp: number;
   iat: number;
   id: {
-    accountStatus: string;
-    batchYear: string;
     dateOfBirth: null | string; // Can be null or a string
     email: string;
     firstName: string;
     gender: string;
-    lastLoginDate: string;
-    isVerified: number | boolean;
     lastName: string;
     middleName: string;
     password: string;
-    prefix: string;
+    profileVisit:boolean;
     profilePic: string;
-    registrationDate: string;
     role: string;
   };
 };

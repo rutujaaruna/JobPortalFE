@@ -25,6 +25,9 @@ import { RecruiterRoutingModule } from './recruiter/recruiter-routing.module';
 import { UserRoutingModule } from './user/user-routing.module';
 import { RecruiterModule } from './recruiter/recruiter.module';
 import { UserModule } from './user/user.module';
+import { DividerModule } from 'primeng/divider';
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { UserModule } from './user/user.module';
     UserModule,
     RecruiterRoutingModule,
     UserRoutingModule,
+    DividerModule,
+    ButtonModule
   ],
+
 })
 export class PagesModule {}

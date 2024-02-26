@@ -10,6 +10,17 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './services/httpAuthInterceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { DividerModule } from 'primeng/divider';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+
 
 @NgModule({
   declarations: [AppComponent, LandingPageComponent, EditProfileComponent],
@@ -21,6 +32,16 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     NgSelectModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+    DividerModule,
+    ProgressBarModule ,
+    CalendarModule,
+    DropdownModule,
+    InputNumberModule,
+    ReactiveFormsModule,
+    ToastModule
   ],
   providers: [
     {

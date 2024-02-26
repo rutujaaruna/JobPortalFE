@@ -14,6 +14,7 @@ import { EditorModule } from 'primeng/editor';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CardModule } from 'primeng/card';
     EditorModule,
     InputTextareaModule,
     ToastModule,
+    DividerModule
   ],
 })
 export class UserModule {}
