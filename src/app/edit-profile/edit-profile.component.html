@@ -3,7 +3,7 @@
         <img src="assets/logo3.png" alt="logo" width="200" height="50">
     </div> 
     <div>
-        <p-button label="Back to Job List"></p-button>
+        <p-button label="Back to Job List" *ngIf="userData.profileVisit" (click)="goToJobBoard()"></p-button>
     </div>  
 </div>
 <div class="grid">
@@ -11,12 +11,12 @@
     <div class="col-12 xl:col-3">
     <div class="card p-4 m-4">
      <div>
-        <p class="header ml-4 cursor-pointer" (click)="nextWorkExperience()"><i class="pi pi-user"></i>
+        <p class="header ml-4 cursor-pointer" (click)="viewBasicDetails()"><i class="pi pi-user"></i>
             Basic details</p> 
      </div>
      <p-divider></p-divider>
      <div>
-      <p class="header ml-4 cursor-pointer" (click)="saveBasicDetails()"><i class="pi pi-book"></i>
+      <p class="header ml-4 cursor-pointer" (click)="nextBasicDetails()"><i class="pi pi-book"></i>
         Educational details</p>  
      </div>
      <p-divider></p-divider>
@@ -28,8 +28,8 @@
     <div class="card p-4 m-4">
      <p>Profile Status</p>
      <div class="mt-4">
-     <p-progressBar [value]="50"></p-progressBar>
-     </div>
+     <p-progressBar [value]="profileCompleteness"></p-progressBar>
+     </div>     
        </div>
     </div>
     <div class="col-12 xl:col-9">
@@ -64,12 +64,12 @@
             </div>
             <div class="col-12 md:col-6 mb-0 p-2">
                 <label htmlFor="name">Gender:<span class="required">*</span></label>
-                <p-dropdown [options]="genderViewedOptions" formControlName="gender" optionLabel="label" placeholder="select gender"
+                <p-dropdown [options]="genderViewedOptions" [editable]="true" formControlName="gender" optionLabel="label" placeholder="select gender"
                 [showClear]="true"></p-dropdown>
             </div>            
             <div class="col-12 md:col-6 mb-0 p-2">
                 <label htmlFor="name">Mobile No:<span class="required">*</span></label>
-                <p-inputNumber class="p-inputtext-sm pInputText" formControlName="mobileNo" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"> </p-inputNumber>
+                <p-inputNumber class="p-inputtext-sm pInputText" formControlName="mobileNo" placeholder="aaa" inputId="withoutgrouping" [useGrouping]="false"> </p-inputNumber>
             </div>            
             <div class="col-12 md:col-6 mb-0 p-2">
                 <label htmlFor="name">location:<span class="required">*</span></label>
@@ -93,7 +93,7 @@
             </div>
              <div class="col-12 md:col-6 mb-0 p-2">
                 <label htmlFor="name">Relationship Status:<span class="required">*</span></label>
-                <p-dropdown [options]="relationViewedOptions" optionLabel="label" formControlName="relationshipStatus" placeholder="select relationship status"
+                <p-dropdown [options]="relationViewedOptions" [editable]="true" optionLabel="label" formControlName="relationshipStatus" placeholder="select relationship status"
                 [showClear]="true"></p-dropdown>
             </div>
         </div>
@@ -110,11 +110,11 @@
                         <h4>Educational Details</h4>
                     </div> 
                     <div class="flex flex-wrap gap-2">
-                        <p-button pRipple icon="pi pi-plus" label="Add"> </p-button>
+                        <p-button pRipple icon="pi pi-plus" (click)="addEdu()" label="Add"> </p-button>
                     </div>
                 </div>
                 <form [formGroup]="educationalForm">
-                <div class="p-fluid p-formgrid grid mt-2">
+                <div *ngIf="eduFormView === true" class="p-fluid p-formgrid grid mt-2">
                     <div class="col-12 md:col-6 mb-0 p-2">
                         <label htmlFor="name">Qualification:<span class="required">*</span></label>
                         <input pInputText class="p-inputtext-sm pInputText" formControlName="programDegree" id="name"
@@ -139,42 +139,31 @@
                         type="text" />
                     </div>
                 </div>
-                <div class="flex flex-wrap gap-2 justify-content-between">
-                    <div><p-button label="Save" icon="pi pi-check" iconPos="right"></p-button></div>
-                   <div class="flex flex-wrap gap-2"><p-button label="Next" (click)="nextEducationalDetails()" icon="pi pi-arrow-right" iconPos="right"></p-button></div> 
-                </div>
+                <div class="flex flex-wrap gap-2 justify-content-between ">
+                    <div><p-button *ngIf="eduFormView" label="Save" (click)="saveEducationalDetails()" icon="pi pi-check" iconPos="right"></p-button></div>
+                   <div class="flex flex-wrap gap-2 pt-4"></div> 
+                </div> 
             </form>
-                <ul class="p-0 mx-0 mt-0 list-none flex flex-wrap">
-                    <li class="flex align-items-center py-2 border-bottom-1 surface-border mr-6 ml-4">
+                <ul *ngIf="eduData" class="p-0 mx-0 mt-0 list-none flex flex-wrap">
+                    <li *ngFor="let data of eduData" class="flex align-items-center py-2 border-bottom-1 surface-border mr-6 ml-4">
                         <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 border-circle mr-3 flex-shrink-0">
                             <i class="pi pi-bolt text-xl text-orange-300"></i>
                         </div>
                         <div class="pt-0 pb-0 flex-grow">
-                            <span class="companyName">EDULAB
-                                <p class="designation">UI developer</p>
+                            <span class="companyName">{{data.programDegree}}
+                                <p class="designation">{{data.collegeName}}</p>
                             </span>
-                            <span class="exp">Apr, 2018 - present | Mumbai, India</span>
+                            <span class="exp">{{data.startDate | date: 'MMM,yyyy'}} - {{data.endDate | date: 'MMM,yyyy'}}  | Mumbai, India</span>
                         </div>
                         <div class="pt-5 pl-6">
-                            <p-button label="Edit" icon="pi pi-pencil" iconPos="right"></p-button>
+                            <p-button label="Edit" icon="pi pi-pencil" (click)="editEduForm(data)" iconPos="right"></p-button>
                         </div>
                     </li>
-                    
-                    <li class="flex align-items-center py-2 border-bottom-1 surface-border mr-6 ml-4">
-                        <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 border-circle mr-3 flex-shrink-0">
-                            <i class="pi pi-bolt text-xl text-orange-300"></i>
-                        </div>
-                        <div class="pt-0 pb-0 flex-grow">
-                            <span class="companyName">Infosys
-                                <p class="designation">UI developer</p>
-                            </span>
-                            <span class="exp">Apr, 2018 - present | Mumbai, India</span>
-                        </div>
-                        <div class="pt-5 pl-6">
-                            <p-button class="button" label="Edit" icon="pi pi-pencil" iconPos="right"></p-button>
-                        </div>
-                    </li>
-                </ul>              
+                </ul>  
+                <div class="flex flex-wrap gap-2 justify-content-between ">
+                    <div></div>
+                   <div class="flex flex-wrap gap-2 pt-4"><p-button label="Next" (click)="nextEducationalDetails()" icon="pi pi-arrow-right" iconPos="right"></p-button></div> 
+                </div>            
             </div>
                     <!-- Work Experiences -->
                     <div class="card p-6 m-4" *ngIf="workExperienceView">
@@ -183,69 +172,59 @@
                                 <h4>Work Experience</h4>
                             </div> 
                             <div class="flex flex-wrap gap-2">
-                                <p-button pRipple icon="pi pi-plus" label="Add"> </p-button>
+                                <p-button pRipple icon="pi pi-plus" (click)="addWorkExp()" label="Add"> </p-button>
                             </div>
                         </div>
+                        <form *ngIf="workFormView" [formGroup]="workExperienceForm">
                         <div class="p-fluid p-formgrid grid mt-2">
                             <div class="col-12 md:col-6 mb-0 p-2">
                                 <label htmlFor="name">Position:<span class="required">*</span></label>
-                                <input pInputText class="p-inputtext-sm pInputText"  id="name"
+                                <input pInputText formControlName="designation" class="p-inputtext-sm pInputText"  id="name"
                                 type="text" />
                             </div>
                             <div class="col-12 md:col-6 mb-0 p-2">
                                 <label htmlFor="name">Company Name:<span class="required">*</span></label>
-                                <input pInputText class="p-inputtext-sm pInputText"  id="name"
+                                <input pInputText formControlName="companyName" class="p-inputtext-sm pInputText"  id="name"
                                 type="text" />
                             </div>
                             <div class="col-12 md:col-6 mb-0 p-2">
                                 <label htmlFor="name">Joining Date:<span class="required">*</span></label>
-                                <p-calendar view="month" dateFormat="mm/yy" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+                                <p-calendar view="month" formControlName="joiningDate" dateFormat="mm/yy" [showIcon]="true" [readonlyInput]="true"></p-calendar>
                             </div>
                             <div class="col-12 md:col-6 mb-0 p-2">
                                 <label htmlFor="name">Resign Date:<span class="required">*</span></label>
-                                <p-calendar view="month" dateFormat="mm/yy" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+                                <p-calendar view="month" formControlName="leavingDate" dateFormat="mm/yy" [showIcon]="true" [readonlyInput]="true"></p-calendar>
                             </div>          
                             <div class="col-12 md:col-6 mb-0 p-2">
                                 <label htmlFor="name">location:<span class="required">*</span></label>
-                                <input pInputText class="p-inputtext-sm pInputText"  id="name"
+                                <input pInputText formControlName="location" class="p-inputtext-sm pInputText"  id="name"
                                 type="text" />
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 justify-content-between">
-                            <div><p-button label="Save" icon="pi pi-check" iconPos="right"></p-button></div>
-                           <!-- <div class="flex flex-wrap gap-2"><p-button label="Back to Job Board" (click)="nextWorkExperience()" icon="pi pi-arrow-right" iconPos="right"></p-button></div>  -->
+                            <div><p-button label="Save" icon="pi pi-check" (click)="saveWorkExperience()" iconPos="right"></p-button></div>
                         </div>
-                        <ul class="p-0 mx-0 mt-0 list-none flex flex-wrap">
-                            <li class="flex align-items-center py-2 border-bottom-1 surface-border mr-6 ml-4">
+                    </form>
+                        <ul *ngIf="workExpData" class="p-0 mx-0 mt-0 list-none flex flex-wrap">
+                            <li  *ngFor="let data of workExpData" class="flex align-items-center py-2 border-bottom-1 surface-border mr-6 ml-4">
                                 <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 border-circle mr-3 flex-shrink-0">
                                     <i class="pi pi-bolt text-xl text-orange-300"></i>
                                 </div>
                                 <div class="pt-0 pb-0 flex-grow">
-                                    <span class="companyName">EDULAB
-                                        <p class="designation">UI developer</p>
+                                    <span class="companyName">{{data.companyName}}
+                                        <p class="designation">{{data.designation}}</p>
                                     </span>
-                                    <span class="exp">Apr, 2018 - present | Mumbai, India</span>
+                                    <span class="exp">{{data.joiningDate | date : 'MMM,yy'}} - {{data.leavingDate | date : 'MMM,yy'}} | {{data.location}}</span>
                                 </div>
                                 <div class="pt-5 pl-6">
-                                    <p-button label="Edit" icon="pi pi-pencil" iconPos="right"></p-button>
-                                </div>
-                            </li>
-                            
-                            <li class="flex align-items-center py-2 border-bottom-1 surface-border mr-6 ml-4">
-                                <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 border-circle mr-3 flex-shrink-0">
-                                    <i class="pi pi-bolt text-xl text-orange-300"></i>
-                                </div>
-                                <div class="pt-0 pb-0 flex-grow">
-                                    <span class="companyName">Infosys
-                                        <p class="designation">UI developer</p>
-                                    </span>
-                                    <span class="exp">Apr, 2018 - present | Mumbai, India</span>
-                                </div>
-                                <div class="pt-5 pl-6">
-                                    <p-button label="Edit" icon="pi pi-pencil" iconPos="right"></p-button>
+                                    <p-button label="Edit" icon="pi pi-pencil" (click)="editWorkExp(data)" iconPos="right"></p-button>
                                 </div>
                             </li>
                         </ul>
+                        <div class="flex flex-wrap gap-2 justify-content-between ">
+                            <div></div>
+                           <div class="flex flex-wrap gap-2 pt-4"><p-button label="Go to Job Board" (click)="goToJobBoard()" icon="pi pi-arrow-right" iconPos="right"></p-button></div> 
+                        </div>  
                     </div>
     </div>
 </div>
