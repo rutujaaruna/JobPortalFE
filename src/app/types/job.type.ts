@@ -71,3 +71,28 @@ export interface jobDetails {
     updatedAt: Date;
     mobileNo:string
     }
+
+    export interface jobApplicantData {
+      postedJobDetails: jobDetails[];
+      totalCount: number;
+    }
+
+    export interface jobAppliedApplicant {
+      jobAppliedData: appliedDataByUser[];
+      total: number;
+      }
+
+      export interface appliedDataByUser {
+        applicantEmail: string;
+        applicantFullName: string;
+        applicantRelevantSkills: string;
+        applicantResumePath: string;
+        createdAt: Date;
+        deletedAt: Date | null;
+        jobApplicantId: number;
+        noteForRecruiter: string;
+        reference: string;
+        applicationStatus:string;
+        updatedAt: Date;
+        }
+        

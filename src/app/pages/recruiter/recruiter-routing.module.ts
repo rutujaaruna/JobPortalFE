@@ -4,6 +4,7 @@ import { PagesComponent } from '../pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddJobComponent } from './add-job/add-job.component';
 import { recruiterRouteGuard } from 'src/app/auth/auth.guard';
+import { JobApplicantComponent } from './job-applicant/job-applicant.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
       {
         path: 'add-job',
         component: AddJobComponent,
+        canActivate: [recruiterRouteGuard],
+      },
+      {
+        path: 'job-applicant',
+        component: JobApplicantComponent,
         canActivate: [recruiterRouteGuard],
       },
     ],

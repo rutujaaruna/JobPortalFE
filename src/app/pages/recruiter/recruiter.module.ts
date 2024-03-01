@@ -12,9 +12,13 @@ import { EditorModule } from 'primeng/editor';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
+import { JobApplicantComponent } from './job-applicant/job-applicant.component';
+import { TagModule } from 'primeng/tag';
+import { DividerModule } from 'primeng/divider';
+
 
 @NgModule({
-  declarations: [AddJobComponent, DashboardComponent],
+  declarations: [AddJobComponent, DashboardComponent, JobApplicantComponent],
   imports: [
     CommonModule,
     CardModule,
@@ -27,6 +31,8 @@ import { CardModule } from 'primeng/card';
     EditorModule,
     InputTextareaModule,
     ToastModule,
+    TagModule,
+    DividerModule
   ],
 })
 export class RecruiterModule {}

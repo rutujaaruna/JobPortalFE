@@ -20,7 +20,7 @@ export class AppMenuComponent implements OnInit {
       this.userType = JSON.parse(userData).role;
     } else {
       alert('No Token Found');
-    };
+    }
 
     this.giveAccessTbas();
   }
@@ -38,9 +38,14 @@ export class AppMenuComponent implements OnInit {
               routerLink: ['/pages/recruiter/dashboard'],
             },
             {
-              label: 'Post Job',
+              label: 'Post a Job',
               icon: 'pi pi-fw pi-calendar-plus',
               routerLink: ['/pages/recruiter/add-job'],
+            },
+            {
+              label: 'Job Applicants',
+              icon: 'pi pi-fw pi-calendar-plus',
+              routerLink: ['/pages/recruiter/job-applicant'],
             },
           ],
         },
@@ -75,5 +80,5 @@ export class AppMenuComponent implements OnInit {
         },
       ];
     }
-  };
+  }
 }
