@@ -76,6 +76,12 @@ export class AppMenuComponent implements OnInit {
               icon: 'pi pi-fw pi-book',
               routerLink: ['/pages/user/profile'],
             },
+            {
+              label: 'Chatbot',
+              icon: 'pi pi-fw pi-calendar-plus',
+              routerLink: ['/pages/user/chatbot'],
+            },
+  
           ],
         },
       ];

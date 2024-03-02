@@ -15,6 +15,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DividerModule } from 'primeng/divider';
     AppliedJobComponent,
     SavedJobComponent,
     ProfileComponent,
+    ChatbotComponent,
   ],
   imports: [
     CommonModule,

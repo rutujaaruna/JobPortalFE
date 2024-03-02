@@ -6,6 +6,7 @@ import { AppliedJobComponent } from './applied-job/applied-job.component';
 import { SavedJobComponent } from './saved-job/saved-job.component';
 import { ProfileComponent } from './profile/profile.component';
 import { userRouteGuard } from 'src/app/auth/auth.guard';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
         component: ProfileComponent,
         canActivate: [userRouteGuard],
       },
+      {
+        path: 'chatbot',
+        component:ChatbotComponent,
+        canActivate: [userRouteGuard],
+      }
     ],
   },
 ];
