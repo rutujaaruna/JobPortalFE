@@ -9,13 +9,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditorModule } from 'primeng/editor';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { SubmitResumeComponent } from './submit-resume/submit-resume.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     SavedJobComponent,
     ProfileComponent,
     ChatbotComponent,
+    SubmitResumeComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     EditorModule,
     InputTextareaModule,
     ToastModule,
-    DividerModule
+    DividerModule,
+    FormsModule
   ],
 })
 export class UserModule {}

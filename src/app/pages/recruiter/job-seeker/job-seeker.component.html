@@ -1,0 +1,35 @@
+<div class="flex flex-wrap gap-2 justify-content-between">
+    <h2>Job Seeker</h2>
+</div>
+<div class="grid p-fluid">
+    <div class="col-12 ">
+            <div class="flex flex-column md:flex-row md:justify-content-between">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input type="search" class="p-inputtext-sm pInputText" [(ngModel)]="filterTextSeeker"
+                    (input)="filterDataSeeker()" pInputText placeholder="Search...">
+                </span>
+            </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+      <div *ngFor="let data of jobSeekerDetails" class="col-md-4 col-lg-4">
+        <div class="our-team">
+          <div class="picture">
+            <img class="img-fluid" alt="profile pic"  *ngIf="data.user.profilePic === null" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGf_8UZ3xLijdkOtv3qWnUpyknARbKMrcVJA&usqp=CAU">
+            <img class="img-fluid" alt="profile pic" *ngIf="data.user.profilePic !== null" [src]="getSanitizedUrl(data.user.profilePic)">
+          </div>
+          <div class="team-content">
+            <h3 class="name">{{data.applicantFullName}}</h3>
+            <h4 class="title">{{data.designation}}</h4>
+            <h4 class="email">{{data.applicantEmail}}</h4>
+            <span class="button" (click)="viewProfile()">View Profile</span>
+          </div>
+          <ul class="social">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

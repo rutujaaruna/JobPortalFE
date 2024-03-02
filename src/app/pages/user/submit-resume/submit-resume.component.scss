@@ -1,0 +1,73 @@
+a{
+    cursor: pointer; 
+}
+
+a:hover{
+    font-size: 1.04rem;
+    color: #0F9690;
+}
+
+.button{
+    background-color: #072E33;
+}
+
+
+.button:hover{
+    background-color: #0F9690;
+}
+
+
+
+.file{
+    height: 2.7rem;
+    color: #072E33;
+}
+
+
+input::file-selector-button {
+    font-weight: bold;
+    color: #fff;
+    background-color: #072E33;
+    padding: 0.5em;
+    border: thin solid grey;
+    border-radius: 6px;
+    height: 2.7rem;
+}
+
+input:hover::file-selector-button {
+    font-weight: bold;
+    color: black;
+    background-color: #072E33;
+    padding: 0.5em;
+    border: thin solid grey;
+    border-radius: 6px;
+    height: 2.7rem;
+}
+
+
+.pInputText:hover {
+    border-color: #0F9690;
+}
+
+.pInputText:focus {
+    border-color: #072E33;
+}
+
+.icon-view{
+    font-size: 1.7rem;
+    color: #0F9690;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.icon-delete {
+    font-size: 1.7rem;
+    color: rgb(222, 56, 56);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.required {
+    color: red;
+    font-size: 15px;
+}

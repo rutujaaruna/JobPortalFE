@@ -7,6 +7,7 @@ import { SavedJobComponent } from './saved-job/saved-job.component';
 import { ProfileComponent } from './profile/profile.component';
 import { userRouteGuard } from 'src/app/auth/auth.guard';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { SubmitResumeComponent } from './submit-resume/submit-resume.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [userRouteGuard],
+      },
+      {
+        path: 'submit-resume',
+        component: SubmitResumeComponent,
         canActivate: [userRouteGuard],
       },
       {

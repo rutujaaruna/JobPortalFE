@@ -6,7 +6,7 @@
                     <div class="flex flex-column md:flex-row md:justify-content-between">
                         <span class="p-input-icon-left">
                             <i class="pi pi-search"></i>
-                            <input type="search" class="p-inputtext-sm pInputText"
+                            <input type="search" class="p-inputtext-sm pInputText" [(ngModel)]="filterTextAlumniApplied"
                                  (input)="filterDataAlumniApplied()" pInputText
                                 #jobApplicant placeholder="Search...">
                         </span>
@@ -61,24 +61,24 @@
                     <div class="col-12">
                         <div class="flex">
                             <div class="flex-1 flex flex-column">
-                                <h4 class=" font-bold mb-0">{{appliedJobDescription?.job?.jobTitle}}</h4>
+                                <h4 class=" font-bold mb-0">{{appliedJobDescription.job.jobTitle}}</h4>
                                 <span><i class="pi pi-building"></i>
-                                    {{appliedJobDescription?.job?.companyName}}</span>
+                                    {{appliedJobDescription.job.companyName}}</span>
                             </div>
                         </div>
                         <div class="row justify-content-between mt-2">
                             <div class="col-md-3"><i class="pi pi-briefcase"></i>
-                                {{appliedJobDescription?.job?.experienceFrom}}
-                                to {{appliedJobDescription?.job?.experienceTo}} years</div>
+                                {{appliedJobDescription.job.experienceFrom}}
+                                to {{appliedJobDescription.job.experienceTo}} Yrs</div>
                             <div class="col-md-3"><i class="bi bi-currency-rupee" style="font-weight: 800;"></i>
-                                {{appliedJobDescription?.job?.salaryPackage}}
+                                {{appliedJobDescription.job.salaryPackage}}
                             </div>
                             <div class="col-md-3"><i class="bi bi-geo-alt" style="font-weight: 800;"></i>
-                                {{appliedJobDescription?.job?.jobLocation}}
+                                {{appliedJobDescription.job.jobLocation}}
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2 justify-content-between mt-2">
-                            <span><i class="pi pi-clock"></i> {{appliedJobDescription?.job?.applicationDeadline |
+                            <span><i class="pi pi-clock"></i> {{appliedJobDescription.job.applicationDeadline |
                                 date:'dd
                                 MMM,yyyy'}}</span>
                         </div>
@@ -143,37 +143,37 @@
                         Skills :
                     </div>
                     <div class="col-12 md:col-6 mb-2">
-                        {{appliedJobDescription?.job?.skills}}
+                        {{appliedJobDescription.job.skills}}
                     </div>
                     <div class="col-12 md:col-6 mb-2 label">
-                        Education/Qualification :
+                        Qualification :
                     </div>
                     <div class="col-12 md:col-6 mb-2">
-                        {{appliedJobDescription?.job?.education}}
+                        {{appliedJobDescription.job.education}}
                     </div>
                     <div class="col-12 md:col-6 mb-2 label">
                         Role :
                     </div>
                     <div class="col-12 md:col-6 mb-2">
-                        {{appliedJobDescription?.job?.role}}
+                        {{appliedJobDescription.job.role}}
                     </div>
                     <div class="col-12 md:col-6 mb-2 label">
                         Industry Type :
                     </div>
                     <div class="col-12 md:col-6 mb-2">
-                        {{appliedJobDescription?.job?.industryType}}
+                        {{appliedJobDescription.job.industryType}}
                     </div>
                     <div class="col-12 md:col-6 mb-2 label">
                         Department :
                     </div>
                     <div class="col-12 md:col-6 mb-2">
-                        {{appliedJobDescription?.job?.department}}
+                        {{appliedJobDescription.job.department}}
                     </div>
                     <div class="col-12 md:col-6 mb-2 label">
                         Employment Type :
                     </div>
                     <div class="col-12 md:col-6 mb-2">
-                        {{appliedJobDescription?.job?.employmentType}}
+                        {{appliedJobDescription.job.employmentType}}
                     </div>
                 </div>
             </div>

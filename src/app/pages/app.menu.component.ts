@@ -47,6 +47,11 @@ export class AppMenuComponent implements OnInit {
               icon: 'pi pi-fw pi-calendar-plus',
               routerLink: ['/pages/recruiter/job-applicant'],
             },
+            {
+              label: 'Job Seeker',
+              icon: 'pi pi-fw pi-calendar-plus',
+              routerLink: ['/pages/recruiter/job-seeker'],
+            },
           ],
         },
       ];
@@ -82,6 +87,11 @@ export class AppMenuComponent implements OnInit {
               routerLink: ['/pages/user/chatbot'],
             },
   
+            {
+              label: 'Submit Resume',
+              icon: 'pi pi-fw pi-book',
+              routerLink: ['/pages/user/submit-resume'],
+            },
           ],
         },
       ];

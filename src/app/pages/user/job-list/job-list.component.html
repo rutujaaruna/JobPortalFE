@@ -35,7 +35,7 @@
             <div class="flex flex-column md:flex-row md:justify-content-between">
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input type="search" class="p-inputtext-sm pInputText"
+                    <input type="search" class="p-inputtext-sm pInputText" [(ngModel)]="filterText"
                         (input)="filterData()" pInputText placeholder="Search...">
                 </span>
             </div>

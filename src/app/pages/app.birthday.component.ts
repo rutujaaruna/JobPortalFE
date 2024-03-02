@@ -12,7 +12,7 @@ import { ApiService } from '../services/api.service';
   selector: 'app-birthday',
   templateUrl: './app.birthday.component.html',
 })
-export class AppBirthdayComponent {
+export class AppBirthdayComponent implements OnInit{
   profileData!: profileData;
   // profilePic:string | SafeResourceUrl;
   // photoURL: SafeResourceUrl;
@@ -39,27 +39,10 @@ export class AppBirthdayComponent {
     this.getProfileData();
   }
 
-  //   this.getProfileData();
-  //   this.fetchUpcomingBirthdays();
-  // }
-  // fetchUpcomingBirthdays(): void {
-  //   this.apiService
-  //     .getApi('/user/getUpcomingBirthdays')
-  //     .subscribe((response:ResponseType<any>) => {
-  //       // Handle the response
-  //       if (response) {
-  //        this.birthdayData = response;
-  //        this.upcomingBirthdays=response.data;
-  //       }
-  //     });
-  // }
   getProfileData() {
     this.apiService.getApi(`/user/getProfileData`).subscribe((res: any) => {
       if (res.status === 200) {
         this.profileData = res.data;
-        console.log('this', this.profileData);
-      } else {
-        alert('Data not found');
       }
     });
   }

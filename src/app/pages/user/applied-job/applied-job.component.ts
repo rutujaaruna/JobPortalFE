@@ -3,7 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ApiService } from 'src/app/services/api.service';
-import { ResponseType } from 'src/app/types/auth.type';
+import { JobApplicant, appliedDataByUser, jobAlumniApplied, jobDescription } from 'src/app/types/job.type';
 
 @Component({
   selector: 'app-applied-job',
@@ -25,18 +25,16 @@ export class AppliedJobComponent implements OnInit{
   filterTextAppliedJob!: string;
   job_id!: number;
   totalAppliedJobCount!: number;
-  jobDescription!: any;
-  alumniJob!: any;
+  jobDescription!: jobDescription;
+  alumniJob!: jobAlumniApplied;
   alumniAppliedJobView: boolean = true;
   alumniAppliedDescription: boolean = false;
-  appliedJobDescription!: any;
+  appliedJobDescription!: JobApplicant;
   totalAlumniJobApplied!: number;
-  alumniJobData!: any[];
+  alumniJobData!: JobApplicant[];
   filterTextAlumniApplied!: string;
   totalAlumniAppliedJobCount!: number;
-  applicantApplyData!: any;
-
-
+  applicantApplyData!: appliedDataByUser;
 
   constructor(
     private apiService: ApiService,
@@ -109,7 +107,7 @@ export class AppliedJobComponent implements OnInit{
 
 
   // Function to view applicants for a job
-  viewApplicant(data: any) {
+  viewApplicant(data: jobDescription) {
     this.job_id = data.jobId;
     this.jobDescription = data;
     const unsafeHtml = this.jobDescription.jobsDescription;
@@ -120,7 +118,6 @@ export class AppliedJobComponent implements OnInit{
   backToApplicant() {
     this.alumniAppliedJobView = true;
     this.alumniAppliedDescription = false;
-    // this.getPostJobDetails('', 1);
   }
 
 
@@ -130,7 +127,7 @@ export class AppliedJobComponent implements OnInit{
   }
 
   //view applied job status
-  viewAlumniJobStatus(data: any) { 
+  viewAlumniJobStatus(data: JobApplicant) { 
     this.appliedJobDescription = data;
     this.alumniAppliedJobView = false;
     this.alumniAppliedDescription = true;

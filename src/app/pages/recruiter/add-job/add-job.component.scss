@@ -1,14 +1,14 @@
 .file {
     height: 2.7rem;
     // background-color: #003459;
-    color: #003459;
+    color: #072E33;
 }
 
 
 input::file-selector-button {
     font-weight: bold;
     color: black;
-    background-color: #007EA7;
+    background-color: #0F9690;
     padding: 0.5em;
     border: thin solid grey;
     border-radius: 6px;
@@ -17,20 +17,20 @@ input::file-selector-button {
 
 
 .pInputText:hover {
-    border-color: #007EA7;
+    border-color: #0F9690;
 }
 
 .pInputText:focus {
-    border-color: #003459;
+    border-color: #072E33;
 }
 
 .button {
-    background-color: #007EA7;
+    background-color: #072E33;
 }
 
 
 .button:hover {
-    background-color: #003459;
+    background-color: #0F9690;
     // color: red;
 }
 
@@ -46,13 +46,13 @@ input::file-selector-button {
 }
 
 :host ::ng-deep .p-calendar .p-inputtext:hover {
-    border-color: #007EA7; 
+    border-color: #0F9690; 
 }
 
 :host ::ng-deep .p-calendar .p-datepicker-trigger {
-    background-color:#007EA7;
+    background-color:#0F9690;
 }
 
 :host ::ng-deep .p-chips .p-inputtext:hover {
-    border-color: #007EA7;
+    border-color: #0F9690;
 }

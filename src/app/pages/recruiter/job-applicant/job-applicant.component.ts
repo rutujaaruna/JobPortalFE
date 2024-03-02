@@ -26,6 +26,8 @@ export class JobApplicantComponent implements OnInit{
   jobDescription!: jobDescription;
   alumniAppliedJobView: boolean = true;
   alumniAppliedDescription: boolean = false;
+  filterText: string = '';
+  filterTextAppliedJob: string = '';
 
   
   constructor(
@@ -71,10 +73,13 @@ export class JobApplicantComponent implements OnInit{
   }
 
     // Function to view a resume
-    viewResume(status: string, jobApplicantId: number) { 
+    viewResume (status: string, jobApplicantId: number,userId:number) { 
       if (status === 'applicationSubmitted') {
         this.updateApplicationStatus('applicationViewed' as string, jobApplicantId as number);
       }
+
+      this.router.navigate(['pages/user/profile']);
+
     }
 
      //updating the application status
@@ -112,5 +117,15 @@ export class JobApplicantComponent implements OnInit{
     this.alumniAppliedJobView = true;
     this.alumniAppliedDescription = false;
     this.getPostJobDetails('',1);
+  }
+
+   // Function to filter job details
+   filterData() {
+    this.getPostJobDetails(this.filterText, 1);
+  }
+
+   // Function to filter applied job details
+   filterDataAppliedJob() {
+    this.getAppliedJobDetails(this.filterTextAppliedJob, 1, this.job_id);
   }
 }

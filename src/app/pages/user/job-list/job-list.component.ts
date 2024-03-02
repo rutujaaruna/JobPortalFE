@@ -19,7 +19,7 @@ export class JobListComponent implements OnInit {
   jobView: boolean = true;
   descriptionView: boolean = false;
   jobDescription!: jobDescription;
-  filterText!: string;
+  filterText: string = '';
   currentPage = 1;
   appliedData!: appliedData[];
   totalItems!: number;
@@ -92,7 +92,7 @@ export class JobListComponent implements OnInit {
 
   // Function to navigate to the "submit-resume" page
   submitResume() {
-    this.router.navigate(['pages', 'job-board', 'submit-resume']);
+    this.router.navigate(['pages', 'user', 'submit-resume']);
   }
 
   // Function to navigate to the "job-applicants" page

@@ -4,11 +4,11 @@
             <div class="flex flex-column md:flex-row md:justify-content-between">
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input type="search" class="p-inputtext-sm pInputText" pInputText
+                    <input type="search"  [(ngModel)]="filterText" (input)="filterData()"  class="p-inputtext-sm pInputText" pInputText
                      placeholder="Search...">
                 </span>
             </div>
-            <div class="grid formgrid bg-white mt-2">
+            <div class="rad grid formgrid bg-white mt-2 ml-1 mr-1">
                 <div class="col-12" *ngFor="let data of jobDetails">
                     <div class="flex mt-4">
                         <div class="flex-1 flex flex-column">
@@ -46,35 +46,33 @@
 </div>
 
 <!--  -->
-<div class="grid p-fluid" *ngIf="applicantView">
-    <div class="col-12 md:col-5">
+<div class="grid p-fluid bg-white mt-2" *ngIf="applicantView">
+    <div class="col-12 md:col-6">
         <div>
             <div class="flex flex-wrap gap-2 justify-content-between">
                 <div class="flex flex-wrap gap-2">
                     <button pButton pRipple icon="pi pi-chevron-left" (click)="backToApplicant()"
-                        label="Back to Job Applicant" style="background-color: #007EA7;">
+                        label="Back to Job Applicant" class="button">
                     </button>
                 </div>
             </div>
             <div class="col-12 mt-2">
                 <div class="flex">
                     <div class="flex-1 flex flex-column">
-                        <h4 class=" font-bold mb-0">{{jobDescription?.jobTitle}}</h4>
-                        <span><i class="pi pi-building"></i> {{jobDescription?.companyName}}</span>
+                        <h4 class=" font-bold mb-0">{{jobDescription.jobTitle}}</h4>
+                        <span><i class="pi pi-building"></i> {{jobDescription.companyName}}</span>
                     </div>
                 </div>
                 <div class="row justify-content-between mt-2">
-                    <div class="col-md-3"><i class="pi pi-briefcase"></i> {{jobDescription?.experienceFrom}}
-                        to {{jobDescription?.experienceTo}} Yrs</div>
-                    <div class="col-md-3"><i class="bi bi-currency-rupee" style="font-weight: 800;"></i>
-                        {{jobDescription?.salaryPackage}}
+                    <div class="col-md-4"><i class="pi pi-briefcase"></i> {{jobDescription.experienceFrom}} to {{jobDescription.experienceTo}} Yrs</div>
+                    <div class="col-md-4"><i class="bi bi-currency-rupee" style="font-weight: 800;"></i>{{jobDescription.salaryPackage}}
                     </div>
-                    <div class="col-md-3"><i class="bi bi-geo-alt" style="font-weight: 800;"></i>
-                        {{jobDescription?.jobLocation}}
+                    <div class="col-md-4"><i class="bi bi-geo-alt" style="font-weight: 800;"></i>
+                        {{jobDescription.jobLocation}}
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 justify-content-between mt-2">
-                    <span><i class="pi pi-clock"></i> {{jobDescription?.timeAgo}}</span>
+                    <span><i class="pi pi-clock"></i> {{jobDescription.timeAgo}}</span>
                 </div>
                 <p-divider></p-divider>
             </div>
@@ -90,87 +88,96 @@
                 Skills :
             </div>
             <div class="col-12 md:col-6 mb-2">
-                {{jobDescription?.skills}}
+                {{jobDescription.skills}}
             </div>
             <div class="col-12 md:col-6 mb-2 label">
                 Qualification :
             </div>
             <div class="col-12 md:col-6 mb-2">
-                {{jobDescription?.education}}
+                {{jobDescription.education}}
             </div>
             <div class="col-12 md:col-6 mb-2 label">
                 Role :
             </div>
             <div class="col-12 md:col-6 mb-2">
-                {{jobDescription?.role}}
+                {{jobDescription.role}}
             </div>
             <div class="col-12 md:col-6 mb-2 label">
                 Industry Type :
             </div>
             <div class="col-12 md:col-6 mb-2">
-                {{jobDescription?.industryType}}
+                {{jobDescription.industryType}}
             </div>
             <div class="col-12 md:col-6 mb-2 label">
                 Department :
             </div>
             <div class="col-12 md:col-6 mb-2">
-                {{jobDescription?.department}}
+                {{jobDescription.department}}
             </div>
             <div class="col-12 md:col-6 mb-2 label">
                 Employment Type :
             </div>
             <div class="col-12 md:col-6 mb-2">
-                {{jobDescription?.employmentType}}
+                {{jobDescription.employmentType}}
             </div>
         </div>
     </div>
-    <div class="col-12 md:col-7">
+    <div class="col-12 md:col-6">
         <h5>Applied Candidates</h5>
         <div class="flex flex-column md:flex-row md:justify-content-between">
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input type="search" class="p-inputtext-sm pInputText" pInputText
-                    
+                [(ngModel)]="filterTextAppliedJob" (input)="filterDataAppliedJob()"
                     placeholder="Search...">
             </span>
 
         </div>
-        <div class="card mb-0 mt-2" *ngFor="let data of applicantData">
-            <div class="d-flex justify-content-end space"
-                *ngIf="data?.applicationStatus === 'shortlisted' || data?.applicationStatus === 'rejected'">
-                <i class="pi pi-check" pTooltip="Application Shortlisted"
-                    *ngIf="data?.applicationStatus === 'shortlisted'"></i>
-                <i class="pi pi-times" pTooltip="Application Rejected"
-                    *ngIf="data?.applicationStatus === 'rejected'"></i>
+        <ul *ngIf="applicantData" class=" mt-4 p-0 mx-0 mt-0 list-none flex flex-wrap">
+            <div class="row"   *ngFor="let data of applicantData">
+                <div class="col-md-2 d-flex justify-content-center">
+                    <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 border-circle flex-shrink-0">
+                        <i class="pi pi-bolt text-xl text-orange-300"></i>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="pt-0 pb-0 ml-2">
+                        <span class="companyName">{{data.applicantFullName}}
+                            <p class="designation">{{data.applicantEmail}}</p>
+                        </span>
+                        <!-- <span class="exp">aaa</span> -->
+                        <div class="pb-2">
+                            <div class="d-flex justify-content-between mb-0"
+                            *ngIf="data?.applicationStatus === 'applicationSubmitted' || data?.applicationStatus === 'applicationViewed'">
+                            <div class=""><p-tag [style]="{'height':'30px'}" icon="pi pi-check" class="tag" severity="success"
+                                    (click)="applicationStatus('shortlisted',data.jobApplicantId)"
+                                    value="Shortlist"></p-tag>
+                            </div>
+                            <div class="ml-2"><p-tag [style]="{'height':'30px'}" icon="pi pi-check" class="tag" severity="danger"
+                                    (click)="applicationStatus('rejected',data.jobApplicantId)" value="Reject"></p-tag>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" pt-4 pb-0 flex-grow">
+                        <div class="pb-2 d-flex justify-content-center space"
+                        *ngIf="data?.applicationStatus === 'shortlisted' || data?.applicationStatus === 'rejected'">
+                        <i class="pi pi-check" pTooltip="Application Shortlisted"
+                            *ngIf="data?.applicationStatus === 'shortlisted'"></i>
+                        <i class="pi pi-times" pTooltip="Application Rejected"
+                            *ngIf="data?.applicationStatus === 'rejected'"></i>
+                    </div>
+                    <div class="pb-2 justify-content-end pl-2">
+                        <button pButton pRipple label="Profile" (click)="viewResume(data.applicationStatus,data.jobApplicantId,data.userId)" class="button p-button"> </button>
+                        <!-- <p-button label="Profile" (click)="viewResume(data.applicationStatus,data.jobApplicantId,data.userId)"></p-button> -->
+                    </div>                
+                    </div>
+                </div>
+                <p-divider></p-divider>
             </div>
-            <div class="row justify-content-between mt-0">
-                <div class="col-md-4"><i class="pi pi-user"></i> {{data.applicantFullName}}</div>
-                <div class="col-md-5"><i class="pi pi-envelope"></i>
-                    {{data.applicantEmail}}
-                </div>
-                <div class="col-md-3"><i class="pi pi-mobile"></i>
-                </div>
-            </div>
-            <div class="row justify-content-between mb-0 mt-1">
-                <div class="col-md-7"><i class="pi pi-user"></i> {{data.applicantRelevantSkills}}
-                </div>
-
-                <div class="col-md-3 "><i class="pi pi-file-pdf"></i><span class="view-Resume"
-                        (click)="viewResume(data.applicationStatus,data.jobApplicantId)">View
-                        Resume</span>
-                </div>
-            </div>
-            <div class="d-flex justify-content-end mt-2 mb-0"
-                *ngIf="data?.applicationStatus === 'applicationSubmitted' || data?.applicationStatus === 'applicationViewed'">
-                <div class="col-md-2"><p-tag icon="pi pi-check" class="tag" severity="success"
-                        (click)="applicationStatus('shortlisted',data.jobApplicantId)"
-                        value="Shortlist"></p-tag>
-                </div>
-                <div class="col-md-2"><p-tag icon="pi pi-check" class="tag" severity="danger"
-                        (click)="applicationStatus('rejected',data.jobApplicantId)" value="Reject"></p-tag>
-                </div>
-            </div>
-        </div>
+        </ul>
         <div class="flex justify-content-center mt-2">
             <!-- <app-pagination [currentPage]="currentPage" [totalPages]="totalAppliedJob"
                 (pageChanged)="onPageChangedAppliedCandidates($event)"></app-pagination> -->
