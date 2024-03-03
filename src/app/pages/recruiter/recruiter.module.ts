@@ -17,6 +17,7 @@ import { TagModule } from 'primeng/tag';
 import { DividerModule } from 'primeng/divider';
 import { TooltipModule } from 'primeng/tooltip';
 import { JobSeekerComponent } from './job-seeker/job-seeker.component';
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { JobSeekerComponent } from './job-seeker/job-seeker.component';
     TagModule,
     DividerModule,
     TooltipModule,
-    FormsModule
+    FormsModule,
+    ChartModule
   ],
 })
 export class RecruiterModule {}

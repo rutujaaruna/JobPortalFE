@@ -1,3 +1,31 @@
 <p-card>
-<p>hellllllooooooooo</p>
+    <div class="flex">
+        <h2>Dashboard</h2>
+    </div>
+    <div class="grid p-fluid">
+        <div class="col-12 md:col-6">
+            <div class="card flex justify-content-center">
+                <p-card header="Job Posted">
+                    <h1 class="m-0">
+                        123
+                    </h1>
+                </p-card>
+            </div>
+        </div>
+        <div class="col-12 md:col-6">
+            <div class="card flex justify-content-center">
+                <p-card header="Job Seeker's">
+                    <h1 class="m-0">
+                        100
+                    </h1>
+                </p-card>
+            </div>
+        </div>
+        <div class="col-12 md:col-12">
+            <h2>Total Application's</h2>
+            <div class="card">
+                <p-chart type="line" [data]="data" [options]="options"></p-chart>
+            </div>
+        </div>
+    </div>
 </p-card>

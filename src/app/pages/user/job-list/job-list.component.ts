@@ -28,7 +28,7 @@ export class JobListComponent implements OnInit {
   appliedUser: boolean = false;
   appliedFriend: boolean = false;
   statisticData!:any;
-
+   save:boolean = false;
   items!: MenuItem[] | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
@@ -110,7 +110,6 @@ export class JobListComponent implements OnInit {
     this.apiService
       .getApi(`/jobs/getJob?globalSearch=${searchTerm}&page=${page}`)
       .subscribe((response:any) => {
-        console.log('response',response);
         
         // Handle the response
         if (response) {
@@ -198,4 +197,47 @@ export class JobListComponent implements OnInit {
     }
     this.getJobDetails(this.filterText, this.currentPage);
   }
+
+  //Function to save jobs
+  saveJobs(jobId:number){
+    if(jobId){
+      this.apiService.postApi('/jobs/saveJobs', {jobId}).subscribe((response:any)=>{
+        if(response.status === 200){
+          this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Successfully saved'
+            });
+            this.save = true;
+        }else{
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `${response.error}`,
+            });
+        }
+      })
+    }
+  };
+
+   unSaveJobs(jobId:number){
+     if(jobId){
+      this.apiService.postApi('/jobs/unSaveJobs', {jobId}).subscribe((response:any)=>{
+        if(response.status === 200){
+          this.save = false;
+          this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Successfully Unsaved'
+            });
+        }else{
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `${response.error}`,
+            });
+        }
+      })
+    }
+  };
 }

@@ -59,7 +59,6 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       const registerValues = this.registerForm.value;
       registerValues.role=this.role;
-      console.log("regsss",registerValues)
       this.api.register(registerValues).subscribe((res: any) => {
         if (res.status === 200) {
           alert(res.message);

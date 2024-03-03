@@ -17,6 +17,9 @@ $gutter: 1rem; //for primeflex grid system
 @import "../node_modules/primeicons/primeicons.css";
 
 
+body {
+  font-family:Arial, Helvetica, sans-serif;
+}
 
 // input[type=date]:focus::-webkit-datetime-edit {
 //     color: black !important;

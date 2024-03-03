@@ -1,0 +1,51 @@
+
+
+.resume{
+    background-color: rgb(226, 204, 233);
+        padding: 10px 20px 5px 20px;
+        text-align: center;
+}
+
+.bi-building-fill {
+    color: #ee1010; 
+}
+
+.all{
+    justify-content: space-between; 
+}
+
+.pInputText:hover {
+    border-color: #0F9690;
+}
+
+.pInputText:focus {
+    border-color: #003459;                                   
+}
+
+.p-input-icon-left .pi-search {
+    color:#0F9690
+}
+
+.viewDetails{
+    cursor: pointer;
+}
+
+.viewDetails:hover{
+font-size: 1.05rem;
+font-weight:500;
+color: #0F9690;
+}
+
+.pi {
+    color: #0F9690;
+    font-weight: 800;
+}
+
+.bi {
+    color: #0F9690;  
+    font-weight: 800; 
+}
+
+.label{
+    font-weight: 600;
+}

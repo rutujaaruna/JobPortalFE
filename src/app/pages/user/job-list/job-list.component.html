@@ -94,8 +94,8 @@
                     <p-divider></p-divider>
                 </div>
             </div>
-            
-            
+
+
             <div class="flex justify-content-center">
                 <!-- <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
                     (pageChanged)="onPageChanged($event)"></app-pagination> -->
@@ -143,10 +143,16 @@
                         style="background-color: #072E33;">
                     </button>
                 </div>
-                <div
-                class="col-12 md:col-6 mb-2 label ml-4 w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 mr-3 flex-shrink-0">
-                <i class="pi pi-bookmark text-xl text-orange-300"></i>
-            </div>
+                <div class="col-12 md:col-6 mb-2 label ml-4 w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 mr-3 flex-shrink-0 cursor-pointer"
+                    *ngIf="!save">
+                    <i class="pi pi-bookmark text-xl text-orange-300 hover:text-orange-500"
+                        (click)="saveJobs(jobDescription.jobId)"></i>
+                </div>
+                <div class="col-12 md:col-6 mb-2 label ml-4 w-3rem h-3rem flex align-items-center justify-content-center bg-green-200 mr-3 flex-shrink-0 cursor-pointer"
+                    *ngIf="save">
+                    <i class="pi pi-bookmark-fill text-xl text-orange-300 hover:text-orange-500"
+                        (click)="unSaveJobs(jobDescription.jobId)"></i>
+                </div>
             </div>
             <div class="formgrid grid">
                 <div class="col-12 md:col-6 mb-2 label">

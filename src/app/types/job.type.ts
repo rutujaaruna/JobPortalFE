@@ -28,6 +28,11 @@ export interface jobDetails {
     total: number;
   };
 
+  export type savedJobData = {
+    jobSaveddData: jobDetails[];
+    total: number;
+  };
+
   export interface jobDescription {
     applicationDeadline: Date;
     companyName: string;

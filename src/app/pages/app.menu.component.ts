@@ -27,7 +27,6 @@ export class AppMenuComponent implements OnInit {
 
   giveAccessTbas(){
     if(this.userType === "recruiter"){
-      console.log("this.userType",this.userType)
        this.model = [
         {
           label: '',
@@ -56,7 +55,6 @@ export class AppMenuComponent implements OnInit {
         },
       ];
     }else if(this.userType === "user"){
-      console.log("this.userType",this.userType)
       this.model = [
         {
           label: '',
