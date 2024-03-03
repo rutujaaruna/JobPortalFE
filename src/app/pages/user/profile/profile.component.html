@@ -1,27 +1,20 @@
 <div class="grid">
     <div class="col-12 xl:col-4">
-        <div class="card align-items-center justify-content-center">
-            <img class="image" alt="avatar1"
+        <div class="card align-items-center justify-content-center" *ngIf="userData">
+            <img class="image" alt="avatar1" *ngIf="userData.profilePic === null"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGf_8UZ3xLijdkOtv3qWnUpyknARbKMrcVJA&usqp=CAU" />
+                <img class="image" alt="avatar1" *ngIf="userData.profilePic !== null"
+                [src]="photoURL" />
             <div class="name" *ngIf="userData">{{userData.firstName}} {{userData.middleName ? userData.middleName : ''}} {{userData.lastName}}</div>
-            <div class="role">Software Developer</div>
-            <p class="des">Junior Software Developer specializing in Angular and Node.js with a proven track record of
-                delivering efficient and scalable solutions.</p>
+            <div class="role" *ngIf="resumeData">{{resumeData.designation}}</div>
+            <!-- <p class="des">Junior Software Developer specializing in Angular and Node.js with a proven track record of
+                delivering efficient and scalable solutions.</p> -->
             
                 <!-- skills  -->
                 <div class="skills-header">Skills</div>
             <div class=" flex align-items-center pt-2 gap-2 flex-wrap">
-                <div class="chip">
-                    <div class="chip-content">Javascript</div>
-                </div>
-                <div class="chip">
-                    <div class="chip-content">Angular</div>
-                </div>
-                <div class="chip">
-                    <div class="chip-content">git</div>
-                </div>
-                <div class="chip">
-                    <div class="chip-content">postman</div>
+                <div class="chip" *ngFor="let data of skills">
+                    <div class="chip-content">{{data}}</div>
                 </div>
             </div>
 
@@ -34,7 +27,7 @@
         <!-- Basic Information  -->
         <div class="card">
             <h5>Basic Information</h5>
-            <div class="p-fluid p-formgrid grid mb-0 pb-0">
+            <div *ngIf="userBasicData" class="p-fluid p-formgrid grid mb-0 pb-0">
                 <div class="field col-12 md:col-3 pt-1 pb-0">
                     <label for="">Blood Group</label>
                     <p class="label-data">{{userBasicData[0].bloodGroup}}</p>

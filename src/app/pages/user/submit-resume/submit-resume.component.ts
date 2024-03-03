@@ -58,8 +58,6 @@ export class SubmitResumeComponent implements OnInit {
 
   //patch the value of user Resume
   patchValueOfUser(data: resumeDataByUser) {
-    console.log('data',data);
-    
     this.formResume.patchValue({
       applicantEmail: data.applicantEmail ? data.applicantEmail : '',
       applicantFullName: data.applicantFullName ? data.applicantFullName : '',

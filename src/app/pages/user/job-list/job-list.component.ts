@@ -218,7 +218,7 @@ export class JobListComponent implements OnInit {
         }
       })
     }
-  };
+  }
 
    unSaveJobs(jobId:number){
      if(jobId){
@@ -239,5 +239,9 @@ export class JobListComponent implements OnInit {
         }
       })
     }
-  };
+  }
+
+  navigateToResume(){
+    this.router.navigate(['/pages/user/submit-resume'])
+  }
 }

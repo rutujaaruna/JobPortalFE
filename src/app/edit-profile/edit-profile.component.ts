@@ -4,6 +4,8 @@ import { ApiService } from '../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { EducationalDetail, UserDetails, UserDetailsData, WorkingDetailsData } from '../types/profile.type';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { environment } from 'environments/environment';
 
 export type ViewOption ={
   value: string,
@@ -22,13 +24,15 @@ export class EditProfileComponent implements OnInit{
     private apiService: ApiService,
     private route: ActivatedRoute,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
     this.getUserData();
   }
 
+  photoURL!: SafeResourceUrl;
   basicDetailsView:boolean = true;
   educationalDetailsView:boolean = false;
   workExperienceView:boolean = false;
@@ -40,6 +44,7 @@ export class EditProfileComponent implements OnInit{
   eduData!:EducationalDetail[];
   workExpData!:WorkingDetailsData[];
   profileCompleteness:number = 10;
+  file!: File;
 
   basicDetailsForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
@@ -78,6 +83,8 @@ export class EditProfileComponent implements OnInit{
       // Handle the response        
       if (response.status === 200) {
         this.userData = response.data;
+        console.log('this.userData', this.userData);
+        
         this.workExpData = this.userData.workingDetails;
         this.eduData = this.userData.educationalDetails;
         this.userBasicData = this.userData.userDetails;
@@ -96,6 +103,11 @@ export class EditProfileComponent implements OnInit{
           relationshipStatus: this.userBasicData[0].relationshipStatus,
           nationality:this.userBasicData[0].nationality
         })
+console.log('nnn',`${environment.url}/uploads/profile/${this.userData.profilePic}`);
+
+        this.photoURL = this.sanitizer.bypassSecurityTrustResourceUrl(
+          `${environment.url}/uploads/profile/${this.userData.profilePic}`
+         );
 
         this.profileCompleteness = this.workExpData && this.eduData && this.userBasicData && this.userData ? 98 : this.eduData && this.userBasicData && this.userData ? 74 : this.userBasicData && this.userData ? 48 : this.userData ? 24 : 18 ;
       }
@@ -154,6 +166,33 @@ export class EditProfileComponent implements OnInit{
       });  
     }
   }
+
+    // Handle file input change
+    handleFileInput(event: Event) {
+      const inputElement = event.target as HTMLInputElement;
+      if (inputElement.files && inputElement.files.length > 0) {
+        this.file = inputElement.files[0];
+        const formData = new FormData();
+        formData.append('dest', 'profile');
+        formData.append('file', this.file);
+        this.apiService.postApi('/user/uploadPic',formData).subscribe((data)=>{
+          if(data){
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Profile pic uploaded successfully!',
+            });
+            this.getUserData();
+          }else{
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Something went wrong!',
+            });  
+          }
+        })
+      }
+    }
 
   nextEducationalDetails(){
     if(this.eduData){

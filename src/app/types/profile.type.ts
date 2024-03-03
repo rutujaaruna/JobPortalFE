@@ -12,6 +12,7 @@
     password: string;
     profileVisit: boolean;
     role: string;
+    profilePic: string;
     updated_at: Date;
     userDetails: UserDetailsData[];
     workingDetails: WorkingDetailsData[];   }
